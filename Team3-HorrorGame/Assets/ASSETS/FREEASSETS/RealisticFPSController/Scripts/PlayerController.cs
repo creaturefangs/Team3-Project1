@@ -62,8 +62,11 @@ namespace EvolveGames
         float installGravity;
         bool WallDistance;
         [HideInInspector] public float WalkingValue;
+        [HideInInspector] public StaminaController _staminaController; 
+
         void Start()
         {
+            _staminaController = GetComponent<StaminaController>();
             characterController = GetComponent<CharacterController>();
             if (Items == null && GetComponent<ItemChange>()) Items = GetComponent<ItemChange>();
             cam = GetComponentInChildren<Camera>();
@@ -75,6 +78,11 @@ namespace EvolveGames
             RunningValue = RuningSpeed;
             installGravity = gravity;
             WalkingValue = walkingSpeed;
+        }
+
+        public void SetRunSpeed(float speed)
+        {
+            RuningSpeed = speed;
         }
 
         void Update()
