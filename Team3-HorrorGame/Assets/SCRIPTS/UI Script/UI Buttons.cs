@@ -13,6 +13,7 @@ public class UIButtons : MonoBehaviour
     public void OnQuitButtonClick()
     {
         Application.Quit();
+        Debug.Log("It Works");
     }
 
     public void OnHelpButtonClick()
@@ -23,5 +24,10 @@ public class UIButtons : MonoBehaviour
     public void OnCreditButtonClick()
     {
         SceneManager.LoadScene("Credits");
+    }
+
+    public void OnMainMenuButtonClick()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }
