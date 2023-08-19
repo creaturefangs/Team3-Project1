@@ -9,7 +9,6 @@ public class Loader : MonoBehaviour
     [Header("Menu Screens")]
     [SerializeField] private GameObject loadingScreen;
     [SerializeField] private GameObject mainMenu;
-    [SerializeField] private GameObject helpMenu;
 
     [Header("Slider")]
     [SerializeField] private Slider loadingSlider;
@@ -17,7 +16,6 @@ public class Loader : MonoBehaviour
     public void LoadLevelBtn(string levelToLoad)
     {
         mainMenu.SetActive(false);
-        helpMenu.SetActive(false);
         loadingScreen.SetActive(true);
     }
 
