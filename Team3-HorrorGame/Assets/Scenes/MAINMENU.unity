@@ -1873,7 +1873,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'TITLE
+  m_text: 'DAYBREAK
 
 '
   m_isRightToLeft: 0
