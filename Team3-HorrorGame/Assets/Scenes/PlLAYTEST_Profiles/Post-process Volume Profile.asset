@@ -27,10 +27,10 @@ MonoBehaviour:
     value: {x: 0.5, y: 0.5}
   intensity:
     overrideState: 1
-    value: 0.38
+    value: 0.24
   smoothness:
     overrideState: 1
-    value: 0.2
+    value: 0.83
   roundness:
     overrideState: 1
     value: 1
@@ -65,7 +65,7 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 0.105
+    value: 0.3
   size:
     overrideState: 1
     value: 1.09
@@ -89,12 +89,12 @@ MonoBehaviour:
     overrideState: 1
     value: 1
   spectralLut:
-    overrideState: 0
+    overrideState: 1
     value: {fileID: 2800000, guid: 213ae241f43b44b3f961dd8739080120, type: 3}
     defaultState: 1
   intensity:
     overrideState: 1
-    value: 0.238
+    value: 0.29
   fastMode:
     overrideState: 0
     value: 1
@@ -116,6 +116,7 @@ MonoBehaviour:
   - {fileID: -3675588257684660531}
   - {fileID: 6925580236061570453}
   - {fileID: -7393724047364345700}
+  - {fileID: 6632922766797394572}
 --- !u!114 &3639698308421017781
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -1427,6 +1428,28 @@ MonoBehaviour:
       - 0.5
       - 0.5
       - 0.5
+--- !u!114 &6632922766797394572
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b94fcd11afffcb142908bfcb1e261fba, type: 3}
+  m_Name: MotionBlur
+  m_EditorClassIdentifier: 
+  active: 1
+  enabled:
+    overrideState: 1
+    value: 1
+  shutterAngle:
+    overrideState: 1
+    value: 272.4
+  sampleCount:
+    overrideState: 0
+    value: 10
 --- !u!114 &6925580236061570453
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -1442,7 +1465,7 @@ MonoBehaviour:
   active: 1
   enabled:
     overrideState: 1
-    value: 1
+    value: 0
   preset:
     overrideState: 1
     value: 4
@@ -1460,7 +1483,7 @@ MonoBehaviour:
     value: 200
   distanceFade:
     overrideState: 1
-    value: 0.05
+    value: 1
   vignette:
     overrideState: 1
     value: 1
