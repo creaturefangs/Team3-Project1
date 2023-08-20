@@ -62,10 +62,12 @@ namespace EvolveGames
         float installGravity;
         bool WallDistance;
         [HideInInspector] public float WalkingValue;
-        [HideInInspector] public StaminaController _staminaController; 
+        [HideInInspector] public StaminaController _staminaController;
+        //[SerializeField] public PauseManager pauseManager;
 
         void Start()
         {
+            //pauseManager = GetComponent<PauseManager>();
             _staminaController = GetComponent<StaminaController>();
             characterController = GetComponent<CharacterController>();
             if (Items == null && GetComponent<ItemChange>()) Items = GetComponent<ItemChange>();
@@ -154,6 +156,13 @@ namespace EvolveGames
                 Items.ani.SetBool("Hide", WallDistance);
                 Items.DefiniteHide = WallDistance;
             }
+
+            //if (pauseManager.GameIsPaused == true)
+            {
+                //Cursor.lockState = CursorLockMode.None;
+                //Cursor.visible = true;
+            }
+
         }
 
         private void OnTriggerEnter(Collider other)
