@@ -42,6 +42,7 @@ public class PauseManager : MonoBehaviour
         GameIsPaused = true;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+
     }
 
     public void LoadMenu()

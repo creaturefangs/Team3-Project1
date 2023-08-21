@@ -27,7 +27,7 @@ public class Interactorscr : MonoBehaviour
             {
                 if (Input.GetKeyDown(KeyCode.E))
                 {
-
+                    onInteract.Invoke();
                 }
             }
         }
