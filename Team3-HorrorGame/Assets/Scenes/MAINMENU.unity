@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 0.5
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 2127855067}
-  m_IndirectSpecularColor: {r: 0.08055905, g: 0.088359915, b: 0.097982995, a: 0.5}
+  m_IndirectSpecularColor: {r: 0.08060186, g: 0.08834968, b: 0.09813722, a: 0.5}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1268,6 +1268,50 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5361405944637305759, guid: f8d029c0c44ae8d45942af659ffa9491, type: 3}
   m_PrefabInstance: {fileID: 1830888047}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &727639439
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 727639441}
+  - component: {fileID: 727639440}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &727639440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 727639439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b725f7d8547cdd459036a5307af5859, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &727639441
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 727639439}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 937.4151, y: 799.6019, z: -1543.5244}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &731722952
 GameObject:
   m_ObjectHideFlags: 0
@@ -3907,9 +3951,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6238225134417797435, guid: 7f6169df8d5aa9246bbc29f97fd21db5, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8831986288628643874, guid: 7f6169df8d5aa9246bbc29f97fd21db5, type: 3}
       propertyPath: m_Name
       value: Audio
+      objectReference: {fileID: 0}
+    - target: {fileID: 8831986288628643874, guid: 7f6169df8d5aa9246bbc29f97fd21db5, type: 3}
+      propertyPath: m_TagString
+      value: Music
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3935,3 +3987,4 @@ SceneRoots:
   - {fileID: 1830888047}
   - {fileID: 1230801300}
   - {fileID: 731722953}
+  - {fileID: 727639441}
