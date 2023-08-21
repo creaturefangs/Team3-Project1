@@ -7,7 +7,7 @@ public class UIButtons : MonoBehaviour
 {
     public void OnPlayLevel1Click()
     {
-        SceneManager.LoadScene("PlayTest");
+        SceneManager.LoadScene("LevelOne");
     }
 
     public void OnQuitButtonClick()
