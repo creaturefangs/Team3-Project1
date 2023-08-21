@@ -30,4 +30,9 @@ public class UIButtons : MonoBehaviour
     {
         SceneManager.LoadScene("MainMenu");
     }
+
+    public void OnClickPlaytest()
+    {
+        SceneManager.LoadScene("PLAYTEST");
+    }
 }
