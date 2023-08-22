@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 0.5
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 2127855067}
-  m_IndirectSpecularColor: {r: 0.08060186, g: 0.08834968, b: 0.09813722, a: 0.5}
+  m_IndirectSpecularColor: {r: 0.08055905, g: 0.088359915, b: 0.097982995, a: 0.5}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -933,7 +933,7 @@ Transform:
   m_GameObject: {fileID: 599630080}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
-  m_LocalPosition: {x: 72, y: 23, z: -717}
+  m_LocalPosition: {x: 72, y: 58, z: -749}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1277,7 +1277,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 727639441}
-  - component: {fileID: 727639440}
+  - component: {fileID: 727639442}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -1285,18 +1285,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &727639440
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 727639439}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b725f7d8547cdd459036a5307af5859, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &727639441
 Transform:
   m_ObjectHideFlags: 0
@@ -1312,6 +1300,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &727639442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 727639439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b725f7d8547cdd459036a5307af5859, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &731722952
 GameObject:
   m_ObjectHideFlags: 0
@@ -2356,6 +2356,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1123359444}
+  - component: {fileID: 1123359445}
   m_Layer: 0
   m_Name: Audio
   m_TagString: Untagged
@@ -2380,6 +2381,18 @@ Transform:
   - {fileID: 170573853}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1123359445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1123359443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3eb514f56e60c94a97a310a63cd9f4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1230801300
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3252,11 +3265,11 @@ Terrain:
   serializedVersion: 6
   m_TerrainData: {fileID: 15600000, guid: 59b43fc791c36b94f9256535b5d039c3, type: 2}
   m_TreeDistance: 5000
-  m_TreeBillboardDistance: 50
-  m_TreeCrossFadeLength: 5
-  m_TreeMaximumFullLODCount: 50
-  m_DetailObjectDistance: 80
-  m_DetailObjectDensity: 1
+  m_TreeBillboardDistance: 478
+  m_TreeCrossFadeLength: 65
+  m_TreeMaximumFullLODCount: 0
+  m_DetailObjectDistance: 1000
+  m_DetailObjectDensity: 0.893
   m_HeightmapPixelError: 5
   m_SplatMapDistance: 1000
   m_HeightmapMaximumLOD: 0
@@ -3952,16 +3965,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6238225134417797435, guid: 7f6169df8d5aa9246bbc29f97fd21db5, type: 3}
-      propertyPath: Loop
+      propertyPath: m_Volume
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8831986288628643874, guid: 7f6169df8d5aa9246bbc29f97fd21db5, type: 3}
       propertyPath: m_Name
       value: Audio
-      objectReference: {fileID: 0}
-    - target: {fileID: 8831986288628643874, guid: 7f6169df8d5aa9246bbc29f97fd21db5, type: 3}
-      propertyPath: m_TagString
-      value: Music
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

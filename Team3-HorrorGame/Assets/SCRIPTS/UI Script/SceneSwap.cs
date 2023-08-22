@@ -5,16 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class SceneSwap : MonoBehaviour
 {
-
     private void OnGUI()
     {
         int xCenter = (Screen.width / 2);
         int yCenter = (Screen.height / 2);
-        int width = 400;
-        int height = 120;
+        int width = 1;
+        int height = 1;
 
         GUIStyle fontSize = new GUIStyle(GUI.skin.GetStyle("button"));
-        fontSize.fontSize = 32;
+        fontSize.fontSize = 1;
 
         Scene scene = SceneManager.GetActiveScene();
 
@@ -35,5 +34,4 @@ public class SceneSwap : MonoBehaviour
             }
         }
     }
-
 }
