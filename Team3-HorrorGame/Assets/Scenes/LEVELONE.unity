@@ -479,7 +479,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 0.9433962, g: 0.92334163, b: 0.88554645, a: 1}
-  m_Intensity: 1
+  m_Intensity: 0.18
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -488,7 +488,7 @@ Light:
     m_Type: 1
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 0.62
+    m_Strength: 0.8
     m_Bias: 0.05
     m_NormalBias: 0.4
     m_NearPlane: 0.1
@@ -704,14 +704,6 @@ PrefabInstance:
     - target: {fileID: 843558594826761073, guid: 4b74f89ec4b35454a840bb58cf42cf4f, type: 3}
       propertyPath: m_Name
       value: RainPrefab
-      objectReference: {fileID: 0}
-    - target: {fileID: 3632647804891022631, guid: 4b74f89ec4b35454a840bb58cf42cf4f, type: 3}
-      propertyPath: Camera
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3632647804891022631, guid: 4b74f89ec4b35454a840bb58cf42cf4f, type: 3}
-      propertyPath: RainIntensity
-      value: 0.031
       objectReference: {fileID: 0}
     - target: {fileID: 6055994602671179561, guid: 4b74f89ec4b35454a840bb58cf42cf4f, type: 3}
       propertyPath: m_LocalPosition.x

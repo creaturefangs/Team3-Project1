@@ -54,7 +54,7 @@ MonoBehaviour:
   RainSoundMedium: {fileID: 8300000, guid: 3359e9d10af08ca46ae396298dbd1ed9, type: 3}
   RainSoundHeavy: {fileID: 8300000, guid: db1471092e49b7445bfbd374a17ea61a, type: 3}
   RainSoundAudioMixer: {fileID: 0}
-  RainIntensity: 1
+  RainIntensity: 0.031
   RainFallParticleSystem: {fileID: 6446868077041349294}
   RainExplosionParticleSystem: {fileID: 1038919165205493875}
   RainMistParticleSystem: {fileID: 8532957861191545905}
