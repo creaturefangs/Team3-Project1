@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -26,26 +27,30 @@ public class StaminaController : MonoBehaviour
     [SerializeField] private CanvasGroup sliderCanvasGroup = null;
 
     [SerializeField] EvolveGames.PlayerController playerController;
+    [SerializeField] GameObject playerObj;
+    [SerializeField] private EvolveGames.PlayerController controllerScript;
 
     private void Start()
     {
         playerController = GetComponent<EvolveGames.PlayerController>();
+        controllerScript = playerObj.GetComponent<EvolveGames.PlayerController>();
 
     }
 
     private void Update()
     {
+        weAreSprinting = controllerScript.isRunning;
         if (!weAreSprinting)
         {
-            if (playerStamina <= maxStamina - 0.01)
+            if (playerStamina <= maxStamina - 0.01) // If player has less than the max amount of stamina...
             {
-                playerStamina += staminaRegen * Time.deltaTime;
+                playerStamina += staminaRegen * Time.deltaTime; // Regenerate stamina based on time.
                 UpdateStamina(1);
 
-                if (playerStamina >= maxStamina)
+                if (playerStamina >= maxStamina) // If player has the max amount of stamina...
                 {
                     //set to normal speed
-                    sliderCanvasGroup.alpha = 0;
+                    sliderCanvasGroup.alpha = 0; // Hide stamina bar.
                     hasRegenerated = true;
                 }
             }
@@ -81,7 +86,7 @@ public class StaminaController : MonoBehaviour
 
     void UpdateStamina(int value)
     {
-        staminaProgressUI.fillAmount = playerStamina / maxStamina;
+        staminaProgressUI.fillAmount = (playerStamina / maxStamina);
 
         if (value == 0 )
         {

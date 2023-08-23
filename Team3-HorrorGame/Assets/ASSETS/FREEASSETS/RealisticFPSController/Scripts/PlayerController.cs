@@ -16,7 +16,8 @@ namespace EvolveGames
         [SerializeField, Range(2, 20)] float RuningSpeed = 4.0f;
         [SerializeField, Range(0, 20)] float jumpSpeed = 6.0f;
         [SerializeField, Range(0.5f, 10)] float lookSpeed = 2.0f;
-        [SerializeField, Range(10, 120)] float lookXLimit = 80.0f;
+        [SerializeField, Range(10, 120)] float lookXLimit = 80.0f; // Limit for player's rotation.
+        
         [Space(20)]
         [Header("Advance")]
         [SerializeField] float RunningFOV = 65.0f;
@@ -41,7 +42,7 @@ namespace EvolveGames
 
         [Space(20)]
         [Header("Input")]
-        [SerializeField] KeyCode CroughKey = KeyCode.LeftControl;
+        [SerializeField] KeyCode CroughKey = KeyCode.LeftControl; // Setting the crouch button.
 
 
         [HideInInspector] public CharacterController characterController;
@@ -92,13 +93,13 @@ namespace EvolveGames
             RaycastHit CroughCheck;
             RaycastHit ObjectCheck;
 
-            if (!characterController.isGrounded && !isClimbing)
+            if (!characterController.isGrounded && !isClimbing) // If character is in the air and isn't climbing.
             {
                 moveDirection.y -= gravity * Time.deltaTime;
             }
             Vector3 forward = transform.TransformDirection(Vector3.forward);
             Vector3 right = transform.TransformDirection(Vector3.right);
-            isRunning = !isCrough ? CanRunning ? Input.GetKey(KeyCode.LeftShift) : false : false;
+            isRunning = !isCrough ? CanRunning ? Input.GetKey(KeyCode.LeftShift) : false : false; // If player holds Left Shift, player is running.
             vertical = canMove ? (isRunning ? RunningValue : WalkingValue) * Input.GetAxis("Vertical") : 0;
             horizontal = canMove ? (isRunning ? RunningValue : WalkingValue) * Input.GetAxis("Horizontal") : 0;
             if (isRunning) RunningValue = Mathf.Lerp(RunningValue, RuningSpeed, timeToRunning * Time.deltaTime);
@@ -106,7 +107,7 @@ namespace EvolveGames
             float movementDirectionY = moveDirection.y;
             moveDirection = (forward * vertical) + (right * horizontal);
 
-            if (Input.GetButton("Jump") && canMove && characterController.isGrounded && !isClimbing)
+            if (Input.GetButton("Jump") && canMove && characterController.isGrounded && !isClimbing) // If player jumps...
             {
                 moveDirection.y = jumpSpeed;
             }
@@ -117,21 +118,23 @@ namespace EvolveGames
             characterController.Move(moveDirection * Time.deltaTime);
             Moving = horizontal < 0 || vertical < 0 || horizontal > 0 || vertical > 0 ? true : false;
 
-            if (Cursor.lockState == CursorLockMode.Locked && canMove)
+            if (Cursor.lockState == CursorLockMode.Locked && canMove) // If player can move and is in game...
             {
                 Lookvertical = -Input.GetAxis("Mouse Y");
                 Lookhorizontal = Input.GetAxis("Mouse X");
 
+                // Handling player rotation and maximum rotation.
                 rotationX += Lookvertical * lookSpeed;
                 rotationX = Mathf.Clamp(rotationX, -lookXLimit, lookXLimit);
                 Camera.transform.localRotation = Quaternion.Euler(rotationX, 0, 0);
                 transform.rotation *= Quaternion.Euler(0, Lookhorizontal * lookSpeed, 0);
 
+                // Handling player's FOV.
                 if (isRunning && Moving) cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, RunningFOV, SpeedToFOV * Time.deltaTime);
                 else cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, InstallFOV, SpeedToFOV * Time.deltaTime);
             }
 
-            if (Input.GetKey(CroughKey))
+            if (Input.GetKey(CroughKey)) // If player crouches...
             {
                 isCrough = true;
                 float Height = Mathf.Lerp(characterController.height, CroughHeight, 5 * Time.deltaTime);
@@ -165,7 +168,8 @@ namespace EvolveGames
 
         }
 
-        private void OnTriggerEnter(Collider other)
+        // CLIMBING //
+        private void OnTriggerEnter(Collider other) // If player approaches a ladder...
         {
             if (other.tag == "Ladder" && CanClimbing)
             { 
@@ -175,14 +179,14 @@ namespace EvolveGames
                 Items.Hide(true);
             }
         }
-        private void OnTriggerStay(Collider other)
+        private void OnTriggerStay(Collider other) // If player stays on ladder...
         {
             if (other.tag == "Ladder" && CanClimbing)
             {
                 moveDirection = new Vector3(0, Input.GetAxis("Vertical") * Speed * (-Camera.localRotation.x / 1.7f), 0);
             }
         }
-        private void OnTriggerExit(Collider other)
+        private void OnTriggerExit(Collider other) // If player leaves ladder...
         {
             if (other.tag == "Ladder" && CanClimbing)
             {
