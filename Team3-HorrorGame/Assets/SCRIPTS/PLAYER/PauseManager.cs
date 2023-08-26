@@ -8,6 +8,7 @@ public class PauseManager : MonoBehaviour
     public bool GameIsPaused = false;
     public GameObject pauseMenuUI;
     public GameObject playerUI;
+    public AudioSource pauseSFX;
 
     // Update is called once per frame
     void Update()
@@ -32,6 +33,9 @@ public class PauseManager : MonoBehaviour
         pauseMenuUI.SetActive(false);
         playerUI.SetActive(true);
         GameIsPaused = false;
+        AudioListener.pause = false;
+        pauseSFX.Play();
+
     }
 
     public void Pause()
@@ -42,7 +46,8 @@ public class PauseManager : MonoBehaviour
         GameIsPaused = true;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-
+        pauseSFX.Play();
+        AudioListener.pause = true;
     }
 
     public void LoadMenu()
