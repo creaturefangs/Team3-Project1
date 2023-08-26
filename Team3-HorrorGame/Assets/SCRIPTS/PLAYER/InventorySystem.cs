@@ -11,6 +11,7 @@ public class InventorySystem : MonoBehaviour
     public GameObject pauseMenuUI;
     public bool inventoryVisible = false;
     public PauseManager pauseManager;
+    public AudioSource inventoryZipper;
 
     void Start()
     {
@@ -49,6 +50,7 @@ public class InventorySystem : MonoBehaviour
         inventoryUI.SetActive(false);
         playerUI.SetActive(true);
         inventoryVisible = false;
+        inventoryZipper.Play();
     }
 
     public void Visible()
@@ -59,7 +61,7 @@ public class InventorySystem : MonoBehaviour
         inventoryVisible = true;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-
+        inventoryZipper.Play();
     }
 
 }
