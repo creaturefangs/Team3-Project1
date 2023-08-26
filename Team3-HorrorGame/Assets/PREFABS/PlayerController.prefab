@@ -380,7 +380,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -365.103, y: 115.22, z: -233.14375}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8988272068252465288}
@@ -428,7 +428,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Camera: {fileID: 8988272068252465288}
   Items: {fileID: 982526535398909157}
-  walkingSpeed: 5
+  walkingSpeed: 9
   CroughSpeed: 1
   RuningSpeed: 10
   jumpSpeed: 6
@@ -1330,7 +1330,7 @@ MonoBehaviour:
   RotationAmount: 0.2
   RotationSmooth: 6
   CanMovementFX: 1
-  MovementAmount: 0.6
+  MovementAmount: 0.5
 --- !u!1 &3173007938335379076
 GameObject:
   m_ObjectHideFlags: 0
@@ -2942,6 +2942,7 @@ MonoBehaviour:
   GameIsPaused: 0
   pauseMenuUI: {fileID: 370321266374579957}
   playerUI: {fileID: 6946261827452974091}
+  pauseSFX: {fileID: 0}
 --- !u!114 &3810653495466647674
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3620,7 +3621,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6216450346165941073}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.75600004, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5249,9 +5250,9 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 10.05
-  m_Range: 12.6
-  m_SpotAngle: 38
+  m_Intensity: 4.3
+  m_Range: 35
+  m_SpotAngle: 88
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
