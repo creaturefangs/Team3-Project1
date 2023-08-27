@@ -65,6 +65,8 @@ namespace EvolveGames
         [HideInInspector] public float WalkingValue;
         [HideInInspector] public StaminaController _staminaController;
         //[SerializeField] public PauseManager pauseManager;
+        private bool canSprint;
+        private float drainedSpeed;
 
         void Start()
         {
@@ -81,6 +83,8 @@ namespace EvolveGames
             RunningValue = RuningSpeed;
             installGravity = gravity;
             WalkingValue = walkingSpeed;
+
+            drainedSpeed = walkingSpeed / 2;
         }
 
         public void SetRunSpeed(float speed)
@@ -93,13 +97,24 @@ namespace EvolveGames
             RaycastHit CroughCheck;
             RaycastHit ObjectCheck;
 
+            canSprint = _staminaController.canSprint;
+
             if (!characterController.isGrounded && !isClimbing) // If character is in the air and isn't climbing.
             {
                 moveDirection.y -= gravity * Time.deltaTime;
             }
             Vector3 forward = transform.TransformDirection(Vector3.forward);
             Vector3 right = transform.TransformDirection(Vector3.right);
-            isRunning = !isCrough ? CanRunning ? Input.GetKey(KeyCode.LeftShift) : false : false; // If player holds Left Shift, player is running.
+            if (canSprint)
+            {
+                isRunning = !isCrough ? CanRunning ? Input.GetKey(KeyCode.LeftShift) : false : false; // If player holds Left Shift, player is running.
+                WalkingValue = walkingSpeed; // Sets walking speed to its normal value.
+            }
+            if (!canSprint)
+            {
+                WalkingValue = drainedSpeed; // Sets walking speed to a halved value for when the player uses up their sprint.
+                isRunning = false;
+            }
             vertical = canMove ? (isRunning ? RunningValue : WalkingValue) * Input.GetAxis("Vertical") : 0;
             horizontal = canMove ? (isRunning ? RunningValue : WalkingValue) * Input.GetAxis("Horizontal") : 0;
             if (isRunning) RunningValue = Mathf.Lerp(RunningValue, RuningSpeed, timeToRunning * Time.deltaTime);
@@ -107,7 +122,7 @@ namespace EvolveGames
             float movementDirectionY = moveDirection.y;
             moveDirection = (forward * vertical) + (right * horizontal);
 
-            if (Input.GetButton("Jump") && canMove && characterController.isGrounded && !isClimbing) // If player jumps...
+            if (Input.GetButton("Jump") && canMove && characterController.isGrounded && !isClimbing && canSprint) // If player jumps...
             {
                 moveDirection.y = jumpSpeed;
             }
