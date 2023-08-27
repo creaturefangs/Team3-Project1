@@ -122,6 +122,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 0}
   goreSFX: {fileID: 6184108911190706099}
+  playerDmgUI: {fileID: 0}
 --- !u!82 &7942966732401446806
 AudioSource:
   m_ObjectHideFlags: 0
@@ -228,7 +229,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 5a3020d138f69aa459b22f57529d5b9e, type: 3}
+  m_audioClip: {fileID: 8300000, guid: a6db18e06fcddb342b43c2d296a9a368, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.59
   m_Pitch: 1

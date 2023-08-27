@@ -12,7 +12,9 @@ GameObject:
   - component: {fileID: 6390905138314942727}
   - component: {fileID: 3286043051353325702}
   - component: {fileID: 4060542599257499070}
-  m_Layer: 0
+  - component: {fileID: 6556714959667245564}
+  - component: {fileID: 6610627904609651347}
+  m_Layer: 8
   m_Name: cannedfood
   m_TagString: Pickup
   m_Icon: {fileID: 0}
@@ -27,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1642999540100979776}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.96060103, z: -0, w: -0.27793115}
+  m_LocalRotation: {x: -0, y: -0.96059996, z: 0, w: -0.2779348}
   m_LocalPosition: {x: -365.29, y: 114.512, z: -233.907}
   m_LocalScale: {x: 0.42031077, y: 0.42031077, z: 0.42031077}
   m_ConstrainProportionsScale: 0
@@ -105,3 +107,40 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6556714959667245564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1642999540100979776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0c08372bdcafaf4d9aa1e1ac16ed5a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onInteract:
+    m_PersistentCalls:
+      m_Calls: []
+  ID: 0
+--- !u!65 &6610627904609651347
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1642999540100979776}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.29691967, y: 0.47266236, z: 0.28946233}
+  m_Center: {x: -0.0014959726, y: 0, z: -4.4583448e-11}
