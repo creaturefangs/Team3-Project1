@@ -445,7 +445,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 7.098755, y: -7.4868164}
+  m_AnchoredPosition: {x: 7.098633, y: -7.4868164}
   m_SizeDelta: {x: -510.94702, y: -70.293274}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &599510205
@@ -2129,11 +2129,11 @@ PrefabInstance:
       objectReference: {fileID: 2018961843}
     - target: {fileID: 3386290361589338938, guid: c2d77153e38919642b1582305fe7b599, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -365.4457
+      value: -367.1013
       objectReference: {fileID: 0}
     - target: {fileID: 3386290361589338938, guid: c2d77153e38919642b1582305fe7b599, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 115.99
+      value: 117.892
       objectReference: {fileID: 0}
     - target: {fileID: 3386290361589338938, guid: c2d77153e38919642b1582305fe7b599, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2170,14 +2170,6 @@ PrefabInstance:
     - target: {fileID: 4311110159956286521, guid: c2d77153e38919642b1582305fe7b599, type: 3}
       propertyPath: m_Name
       value: ENEMY
-      objectReference: {fileID: 0}
-    - target: {fileID: 6184108911190706099, guid: c2d77153e38919642b1582305fe7b599, type: 3}
-      propertyPath: m_Volume
-      value: 0.46
-      objectReference: {fileID: 0}
-    - target: {fileID: 7942966732401446806, guid: c2d77153e38919642b1582305fe7b599, type: 3}
-      propertyPath: m_Volume
-      value: 0.87
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
