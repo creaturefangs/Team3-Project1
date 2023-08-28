@@ -3277,17 +3277,45 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 6968863962783875771, guid: 0ecd90a976571a749835701cb999f6eb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7161680551015923346, guid: 0ecd90a976571a749835701cb999f6eb, type: 3}
       propertyPath: m_Layer
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7161680551015923346, guid: 0ecd90a976571a749835701cb999f6eb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7522322451429201960, guid: 0ecd90a976571a749835701cb999f6eb, type: 3}
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 7522322451429201960, guid: 0ecd90a976571a749835701cb999f6eb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8058939032953977013, guid: 0ecd90a976571a749835701cb999f6eb, type: 3}
       propertyPath: m_Layer
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8058939032954463381, guid: 0ecd90a976571a749835701cb999f6eb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 249
+      objectReference: {fileID: 0}
+    - target: {fileID: 8058939032954463381, guid: 0ecd90a976571a749835701cb999f6eb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5.69
+      objectReference: {fileID: 0}
+    - target: {fileID: 8058939032954463381, guid: 0ecd90a976571a749835701cb999f6eb, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 621.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 8737958562192478788, guid: 0ecd90a976571a749835701cb999f6eb, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8737958562192512228, guid: 0ecd90a976571a749835701cb999f6eb, type: 3}
       propertyPath: m_Name
@@ -3332,6 +3360,14 @@ PrefabInstance:
     - target: {fileID: 8737958562192869572, guid: 0ecd90a976571a749835701cb999f6eb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 135.586
+      objectReference: {fileID: 0}
+    - target: {fileID: 9024067254168636089, guid: 0ecd90a976571a749835701cb999f6eb, type: 3}
+      propertyPath: m_Range
+      value: 84.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 9024067254168636089, guid: 0ecd90a976571a749835701cb999f6eb, type: 3}
+      propertyPath: m_Intensity
+      value: 2.7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
