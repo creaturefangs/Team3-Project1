@@ -95,7 +95,7 @@ public class Visibility : MonoBehaviour
 
     void ChangeIcon(string name) // Changes the visibility icon.
     {
-        Sprite newIcon = Resources.Load<Sprite>(name);
+        Sprite newIcon = Resources.Load<Sprite>("2D/UI/" + name);
         visIcon.GetComponent<Image>().sprite = newIcon;
     }
 
