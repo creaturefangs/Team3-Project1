@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
+
+    public GameObject pickupHealthkit;
+    public GameObject pickupPills;
     // Start is called before the first frame update
     void Start()
     {
