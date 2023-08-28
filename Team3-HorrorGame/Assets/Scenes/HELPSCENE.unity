@@ -3417,12 +3417,12 @@ GameObject:
   - component: {fileID: 964797132}
   - component: {fileID: 964797131}
   m_Layer: 5
-  m_Name: Page_2_Controls
+  m_Name: Page_2_Items_and_Collectables
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &964797130
 RectTransform:
   m_ObjectHideFlags: 0
