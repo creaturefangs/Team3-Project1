@@ -34,15 +34,16 @@ namespace EvolveGames
         }
         private void Update()
         {
-            if (Input.GetAxis("Mouse ScrollWheel") > 0f)
-            {
-                ItemIdInt++;
-            }
+            if (Input.GetKeyDown(KeyCode.Alpha0) || Input.GetKeyDown(KeyCode.Keypad0)) { ItemIdInt = 0; }
+            if (Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Keypad1)) { ItemIdInt = 1; }
+            if (Input.GetKeyDown(KeyCode.Alpha2) || Input.GetKeyDown(KeyCode.Keypad2)) { ItemIdInt = 2; }
+            if (Input.GetKeyDown(KeyCode.Alpha3) || Input.GetKeyDown(KeyCode.Keypad3)) { ItemIdInt = 3; }
+            if (Input.GetKeyDown(KeyCode.Alpha4) || Input.GetKeyDown(KeyCode.Keypad4)) { ItemIdInt = 4; }
+            if (Input.GetKeyDown(KeyCode.Alpha5) || Input.GetKeyDown(KeyCode.Keypad5)) { ItemIdInt = 5; }
+            if (Input.GetKeyDown(KeyCode.Alpha6) || Input.GetKeyDown(KeyCode.Keypad6)) { ItemIdInt = 6; }
 
-            if (Input.GetAxis("Mouse ScrollWheel") < 0f)
-            {
-                ItemIdInt--;
-            }
+            if (Input.GetAxis("Mouse ScrollWheel") > 0f) { ItemIdInt++; }
+            if (Input.GetAxis("Mouse ScrollWheel") < 0f) { ItemIdInt--; }
 
             if(Input.GetKeyDown(KeyCode.H))
             {

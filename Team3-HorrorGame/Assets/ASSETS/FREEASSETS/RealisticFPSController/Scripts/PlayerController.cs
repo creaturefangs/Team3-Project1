@@ -11,10 +11,10 @@ namespace EvolveGames
         [Header("PlayerController")]
         [SerializeField] public Transform Camera;
         [SerializeField] public ItemChange Items;
-        [SerializeField, Range(1, 10)] float walkingSpeed = 3.0f;
+        [SerializeField, Range(1, 10)] float walkingSpeed = 9.0f;
         [Range(0.1f, 5)] public float CroughSpeed = 1.0f;
-        [SerializeField, Range(2, 20)] float RuningSpeed = 4.0f;
-        [SerializeField, Range(0, 20)] float jumpSpeed = 6.0f;
+        [SerializeField, Range(2, 20)] float RunningSpeed = 10.0f;
+        [SerializeField, Range(0, 20)] float jumpHeight = 6.0f;
         [SerializeField, Range(0.5f, 10)] float lookSpeed = 2.0f;
         [SerializeField, Range(10, 120)] float lookXLimit = 80.0f; // Limit for player's rotation.
         
@@ -80,7 +80,7 @@ namespace EvolveGames
             InstallCroughHeight = characterController.height;
             InstallCameraMovement = Camera.localPosition;
             InstallFOV = cam.fieldOfView;
-            RunningValue = RuningSpeed;
+            RunningValue = RunningSpeed;
             installGravity = gravity;
             WalkingValue = walkingSpeed;
 
@@ -89,7 +89,7 @@ namespace EvolveGames
 
         public void SetRunSpeed(float speed)
         {
-            RuningSpeed = speed;
+            RunningSpeed = speed;
         }
 
         void Update()
@@ -117,14 +117,14 @@ namespace EvolveGames
             }
             vertical = canMove ? (isRunning ? RunningValue : WalkingValue) * Input.GetAxis("Vertical") : 0;
             horizontal = canMove ? (isRunning ? RunningValue : WalkingValue) * Input.GetAxis("Horizontal") : 0;
-            if (isRunning) RunningValue = Mathf.Lerp(RunningValue, RuningSpeed, timeToRunning * Time.deltaTime);
+            if (isRunning) RunningValue = Mathf.Lerp(RunningValue, RunningSpeed, timeToRunning * Time.deltaTime);
             else RunningValue = WalkingValue;
             float movementDirectionY = moveDirection.y;
             moveDirection = (forward * vertical) + (right * horizontal);
 
             if (Input.GetButton("Jump") && canMove && characterController.isGrounded && !isClimbing && canSprint) // If player jumps...
             {
-                moveDirection.y = jumpSpeed;
+                moveDirection.y = jumpHeight;
             }
             else
             {

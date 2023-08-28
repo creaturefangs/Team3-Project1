@@ -39,7 +39,7 @@ public class StaminaController : MonoBehaviour
         weAreSprinting = playerController.isRunning;
         UpdateStamina();
 
-        if (Input.GetKeyDown(KeyCode.Space) && playerStamina >= jumpCost)
+        if (Input.GetKeyDown(KeyCode.Space) && playerStamina >= jumpCost && canSprint)
         {
             StaminaJump();
         }
