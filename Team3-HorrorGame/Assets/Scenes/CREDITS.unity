@@ -339,8 +339,8 @@ MonoBehaviour:
     John
     Dickey'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 4d4bf1db1a7b67a47937a2817edccbf2, type: 2}
+  m_sharedMaterial: {fileID: 1039729600645054615, guid: 4d4bf1db1a7b67a47937a2817edccbf2, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1119,8 +1119,8 @@ MonoBehaviour:
     Conceptual Artist, Level Designer, Programmer \n\n\nUI Designer, Programmer,
     Level Design\n\n\n\nAsset Contributor, Sound Design, Playtester, 2D Artist  "
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 4d4bf1db1a7b67a47937a2817edccbf2, type: 2}
+  m_sharedMaterial: {fileID: 1039729600645054615, guid: 4d4bf1db1a7b67a47937a2817edccbf2, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1787,8 +1787,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Credits
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 94dc277d7397ddf49bda19fae47952a6, type: 2}
+  m_sharedMaterial: {fileID: 8892419569600785587, guid: 94dc277d7397ddf49bda19fae47952a6, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
