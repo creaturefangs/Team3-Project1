@@ -5,20 +5,24 @@ using TMPro;
 using UnityEngine.UI;
 using EvolveGames;
 using UnityEngine.SceneManagement;
+using System;
 
 public class Visibility : MonoBehaviour
 {
     public GameObject playerObject;
-    public TMP_Text indicator;
-    public GameObject visIcon;
+    private Animator iconAnimator;
+    private Image visIcon;
+    private Image visOverlay;
     private ItemChange itemScript;
     private StaminaController staminaScript;
 
     public float visibility = 0;
 
     [Header("Visibility Parameters")]
-    [Range(0, 25)] public float visGain = 2.5f; // How much to add to visibility on each interval.
-    [Range(0, 25)] public float visLose = 5.0f;
+    // Vis gain and loss numbers do NOT add/subtract directly to visibility and end up multiplying w/time mod before being factored in.
+    [Range(0, 10)] public float lightVisGain = 1.0f; // How much visibility is gained from light sources.
+    [Range(0, 10)] public float noiseVisGain = 2.0f; // How much visibility is gained from making noise (like sprinting).
+    [Range(0, 10)] public float visLoss = 3.0f; // How much to subtract from visibility on each interval.
     [Range(0, 50)] public int maxVisibility = 25; // The maximum amount of visibility a player can have before game over.
     [Header("Visibility Thresholds")]
     public int visSafe = 5;
@@ -36,6 +40,11 @@ public class Visibility : MonoBehaviour
     {
         itemScript = playerObject.GetComponent<ItemChange>();
         staminaScript = playerObject.GetComponent<StaminaController>();
+
+        visOverlay = gameObject.transform.GetChild(0).GetComponent<Image>();
+        visIcon = gameObject.transform.GetChild(1).GetComponent<Image>();
+
+        iconAnimator = gameObject.transform.GetChild(1).GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -75,11 +84,13 @@ public class Visibility : MonoBehaviour
         else if (visibility >= visDanger)
         {
             ChangeIcon("Visibility-Danger");
+            iconAnimator.SetBool("Animate", true);
         }
 
         else if (visibility >= visCaution)
         {
             ChangeIcon("Visibility-Caution");
+            iconAnimator.SetBool("Animate", false);
         }
 
         else if (visibility >= visSafe)
@@ -96,7 +107,7 @@ public class Visibility : MonoBehaviour
     void ChangeIcon(string name) // Changes the visibility icon.
     {
         Sprite newIcon = Resources.Load<Sprite>("2D/UI/" + name);
-        visIcon.GetComponent<Image>().sprite = newIcon;
+        visIcon.sprite = newIcon;
     }
 
     private IEnumerator GainVisibility()
@@ -104,7 +115,8 @@ public class Visibility : MonoBehaviour
         visChange = true;
         while (playerVisible && visibility < maxVisibility)
         {
-            visibility += visGain * Time.deltaTime;
+            visibility += lightVisGain * Time.deltaTime;
+            UpdateOverlay();
             yield return new WaitForSeconds(Time.deltaTime);
         }
         visChange = false;
@@ -115,7 +127,8 @@ public class Visibility : MonoBehaviour
         visChange = true;
         while (!playerVisible && !isSprinting && visibility > 0)
         {
-            visibility -= visLose * Time.deltaTime;
+            visibility -= visLoss * Time.deltaTime;
+            UpdateOverlay();
             yield return new WaitForSeconds(Time.deltaTime);
         }
         visChange = false;
@@ -126,9 +139,17 @@ public class Visibility : MonoBehaviour
         sprintMod = true;
         while (isSprinting && visibility < maxVisibility)
         {
-            visibility += visGain * Time.deltaTime;
+            visibility += noiseVisGain * Time.deltaTime;
+            UpdateOverlay();
             yield return new WaitForSeconds(Time.deltaTime);
         }
         sprintMod = false;
+    }
+
+    void UpdateOverlay()
+    {
+        Color currentAlpha = visOverlay.color;
+        currentAlpha.a = visibility / maxVisibility;
+        visOverlay.color = currentAlpha;
     }
 }
