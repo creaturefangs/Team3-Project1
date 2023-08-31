@@ -74,8 +74,10 @@ public class BasicEnemyAI : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+
         goreSFX.Play();
         playerDmgUI.SetActive(true);
 
+        // plays the damage sound effect and displays player's damage
     }
 }

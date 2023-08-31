@@ -6,4 +6,7 @@ using UnityEngine;
 public class NoteContent
 {
     public List<string> paragraphs = new List<string>();
+
+
+
 }
