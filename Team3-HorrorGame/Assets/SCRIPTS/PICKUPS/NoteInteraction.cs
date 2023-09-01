@@ -70,6 +70,9 @@ public class NoteInteraction : MonoBehaviour
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
 
+        // Activate the note object
+        gameObject.SetActive(true);
+
         // play sound effect
         noteSFX.Play();
     }
