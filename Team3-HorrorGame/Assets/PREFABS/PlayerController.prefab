@@ -364,6 +364,7 @@ GameObject:
   - component: {fileID: 1243056329115571743}
   - component: {fileID: 8806009239235777006}
   - component: {fileID: 829440195216994824}
+  - component: {fileID: -7876633964755647897}
   m_Layer: 0
   m_Name: PlayerController
   m_TagString: GameController
@@ -550,6 +551,20 @@ CapsuleCollider:
   m_Height: 2.1625967
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-7876633964755647897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 917524016377496658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a23410bb6a948243aa51ab07f1995d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  devToolsEnabled: 1
+  godMode: 0
 --- !u!1 &1057705409865394143
 GameObject:
   m_ObjectHideFlags: 0
@@ -5913,8 +5928,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerObject: {fileID: 917524016377496658}
   visibility: 0
-  visGain: 1
-  visLose: 3
+  lightVisGain: 1
+  noiseVisGain: 2
+  visLoss: 3
   maxVisibility: 25
   visSafe: 5
   visCaution: 10

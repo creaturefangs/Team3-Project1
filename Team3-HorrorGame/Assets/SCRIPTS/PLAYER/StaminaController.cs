@@ -24,46 +24,54 @@ public class StaminaController : MonoBehaviour
     [SerializeField] private CanvasGroup sliderCanvasGroup = null;
 
     [SerializeField] EvolveGames.PlayerController playerController;
+    private DevTools devTools;
     private bool staminaHidden = false;
     private bool changingDisplay = false; // Whether the stamina bar is currently transitioning between being shown/hidden.
     private bool regenerating = false;
     private bool draining = false;
 
+    private bool godMode = false;
+
     private void Start()
     {
         playerController = GetComponent<EvolveGames.PlayerController>();
+        devTools = gameObject.GetComponent<DevTools>();
     }
 
     private void Update()
     {
-        weAreSprinting = playerController.isRunning;
-        UpdateStamina();
-
-        if (Input.GetKeyDown(KeyCode.Space) && playerStamina >= jumpCost && canSprint)
+        godMode = devTools.godMode;
+        if (!godMode)
         {
-            StaminaJump();
-        }
+            weAreSprinting = playerController.isRunning;
+            UpdateStamina();
 
-        if (weAreSprinting)
-        {
-            if (playerStamina >= 0 && !draining) // If player is not out of stamina...
+            if (Input.GetKeyDown(KeyCode.Space) && playerStamina >= jumpCost && canSprint)
             {
-                StartCoroutine(DrainStamina());
+                StaminaJump();
             }
 
-            if (playerStamina <= 0) // If player is out of stamina...
+            if (weAreSprinting)
             {
-                canSprint = false;
-                canRegen = false;
-                StartCoroutine(StaminaDrained());
-            }
-        }
+                if (playerStamina >= 0 && !draining) // If player is not out of stamina...
+                {
+                    StartCoroutine(DrainStamina());
+                }
 
-        if (!weAreSprinting)
-        {
-            if (!canSprint && canRegen && Input.GetKeyDown(KeyCode.LeftShift)) { StartCoroutine(InvalidSprint()); } // Visual feedback for if the player tries to sprint while out of stamina.
-            if ((playerStamina <= maxStamina) && canRegen && !regenerating) { StartCoroutine(RegenStamina()); } // Stamina regenerating after a delay of one second, so long as the player can regenerate.
-            if (playerStamina >= maxStamina) { canSprint = true; } // If player has the max amount of stamina, they can then sprint.
+                if (playerStamina <= 0) // If player is out of stamina...
+                {
+                    canSprint = false;
+                    canRegen = false;
+                    StartCoroutine(StaminaDrained());
+                }
+            }
+
+            if (!weAreSprinting)
+            {
+                if (!canSprint && canRegen && Input.GetKeyDown(KeyCode.LeftShift)) { StartCoroutine(InvalidSprint()); } // Visual feedback for if the player tries to sprint while out of stamina.
+                if ((playerStamina <= maxStamina) && canRegen && !regenerating) { StartCoroutine(RegenStamina()); } // Stamina regenerating after a delay of one second, so long as the player can regenerate.
+                if (playerStamina >= maxStamina) { canSprint = true; } // If player has the max amount of stamina, they can then sprint.
+            }
         }
     }
 

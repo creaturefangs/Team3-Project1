@@ -15,6 +15,7 @@ public class Visibility : MonoBehaviour
     private Image visOverlay;
     private ItemChange itemScript;
     private StaminaController staminaScript;
+    private DevTools devTools;
 
     public float visibility = 0;
 
@@ -35,11 +36,14 @@ public class Visibility : MonoBehaviour
     private bool visChange = false;
     private bool sprintMod = false;
 
+    private bool godMode = false;
+
     // Start is called before the first frame update
     void Start()
     {
         itemScript = playerObject.GetComponent<ItemChange>();
         staminaScript = playerObject.GetComponent<StaminaController>();
+        devTools = playerObject.GetComponent<DevTools>();
 
         visOverlay = gameObject.transform.GetChild(0).GetComponent<Image>();
         visIcon = gameObject.transform.GetChild(1).GetComponent<Image>();
@@ -50,23 +54,20 @@ public class Visibility : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        VisibilityStatus();
-
-        isSprinting = staminaScript.weAreSprinting;
-        if (isSprinting && !sprintMod) { StartCoroutine(SprintVisibility()); } // If player is sprinting and sprint is not already being applied to visibility...
-
-        currentItem = itemScript.ItemIdInt;
-        if (currentItem == 3 || currentItem == 4) { playerVisible = true; } // Player gets increasing visibility if holding flashlight/lantern.
-        else { playerVisible = false; }
-
-        if (playerVisible && !visChange)
+        godMode = devTools.godMode;
+        if (!godMode)
         {
-            StartCoroutine(GainVisibility());
-        }
+            VisibilityStatus();
 
-        if (!playerVisible && !visChange)
-        {
-            StartCoroutine(LoseVisibility());
+            isSprinting = staminaScript.weAreSprinting;
+            if (isSprinting && !sprintMod) { StartCoroutine(SprintVisibility()); } // If player is sprinting and sprint is not already being applied to visibility...
+
+            currentItem = itemScript.ItemIdInt;
+            if (currentItem == 3 || currentItem == 4) { playerVisible = true; } // Player gets increasing visibility if holding flashlight/lantern.
+            else { playerVisible = false; }
+
+            if (playerVisible && !visChange) { StartCoroutine(GainVisibility()); }
+            if (!playerVisible && !visChange) { StartCoroutine(LoseVisibility()); }
         }
     }
 
