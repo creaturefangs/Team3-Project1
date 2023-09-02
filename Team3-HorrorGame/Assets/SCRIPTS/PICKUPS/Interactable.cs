@@ -5,12 +5,13 @@ using UnityEngine.Events;
 
 public class Interactable : MonoBehaviour
 {
+    public string interactType;
     public UnityEvent onInteract;
-    public int ID;
+
     // Start is called before the first frame update
     void Start()
     {
-        ID = Random.Range(0, 9999999);
+        
     }
 
     // Update is called once per frame

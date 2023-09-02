@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class NoteManager : MonoBehaviour
 {
-    public List<NoteContent> notes = new List<NoteContent>();
-
     // Singleton instance
     public static NoteManager Instance { get; private set; }
 

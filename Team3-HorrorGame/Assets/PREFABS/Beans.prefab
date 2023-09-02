@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6556714959667245564}
   - component: {fileID: 6610627904609651347}
   m_Layer: 8
-  m_Name: cannedfood
+  m_Name: Beans
   m_TagString: Pickup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -1490,10 +1490,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5497195946392577875}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 4514191173363728110}
+        m_TargetAssemblyTypeName: NoteInteraction, Assembly-CSharp
+        m_MethodName: ExitNote
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2754,8 +2754,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 7.098633, y: -7.4868164}
-  m_SizeDelta: {x: -510.94702, y: -70.293274}
+  m_AnchoredPosition: {x: 0, y: -12.5}
+  m_SizeDelta: {x: -500, y: -125}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7263098353518193618
 CanvasRenderer:
@@ -2785,9 +2785,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '
-
-    New Text'
+  m_text: New Text
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7a7939b37e82efe4f8be4414ce3aaed5, type: 2}
   m_sharedMaterial: {fileID: 1277268420330052518, guid: 7a7939b37e82efe4f8be4414ce3aaed5, type: 2}
@@ -2814,8 +2812,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 53.9
-  m_fontSizeBase: 53.9
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2825,8 +2823,8 @@ MonoBehaviour:
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
-  m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_wordSpacing: 30
+  m_lineSpacing: 10
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -2868,7 +2866,7 @@ GameObject:
   - component: {fileID: 2654349632451673984}
   - component: {fileID: 6708155179623865207}
   m_Layer: 5
-  m_Name: StaminaBar_Group
+  m_Name: StaminaBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3723,13 +3721,14 @@ GameObject:
   - component: {fileID: 6514981389542633228}
   - component: {fileID: 5946615056792826655}
   - component: {fileID: 2933277364196856429}
+  - component: {fileID: 4514191173363728110}
   m_Layer: 5
   m_Name: NotesUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &6514981389542633228
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3788,6 +3787,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &4514191173363728110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5497195946392577875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c318da30a9b2107428e1002b998a2c05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  noteObj: {fileID: 0}
+  noteSFX: {fileID: 0}
+  exitingNote: 0
 --- !u!1 &6025261961043178100
 GameObject:
   m_ObjectHideFlags: 0
@@ -4296,10 +4310,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b4667440c9c34c4bac90e5a4962b192, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactableLayermask:
+  interactLayer:
     serializedVersion: 2
     m_Bits: 256
   eInteractUI: {fileID: 3842015378628382758}
+  interactObj: {fileID: 0}
 --- !u!1 &6674348990468720763
 GameObject:
   m_ObjectHideFlags: 0
@@ -4465,7 +4480,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7152818573728250407
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4848,7 +4863,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 5878d8c90ec4e4c48b13875207573be3, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -6291,7 +6306,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2748291923736130025, guid: f05717ffda430ee479de5788c1c86d57, type: 3}
       propertyPath: m_Name
-      value: Latern2
+      value: Lantern
       objectReference: {fileID: 0}
     - target: {fileID: 2748291923736130025, guid: f05717ffda430ee479de5788c1c86d57, type: 3}
       propertyPath: m_IsActive
@@ -6670,7 +6685,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6154010920557489394, guid: c0405dd62e813e2429c88e24b96da4f3, type: 3}
       propertyPath: m_Name
-      value: pills
+      value: Pills
       objectReference: {fileID: 0}
     - target: {fileID: 6154010920557489394, guid: c0405dd62e813e2429c88e24b96da4f3, type: 3}
       propertyPath: m_IsActive

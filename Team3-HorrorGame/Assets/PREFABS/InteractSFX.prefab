@@ -11,12 +11,12 @@ GameObject:
   - component: {fileID: 6064427261449224457}
   - component: {fileID: 7975933682641543632}
   m_Layer: 0
-  m_Name: lanternSFX
+  m_Name: LanternSFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6064427261449224457
 Transform:
   m_ObjectHideFlags: 0
@@ -43,7 +43,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: d6176548e4ead5a4da67163e747e9624, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -138,7 +138,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2854678088740553719}
   m_Layer: 0
-  m_Name: SFXpickupsprefab
+  m_Name: InteractSFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -181,7 +181,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4197611212458447337
 Transform:
   m_ObjectHideFlags: 0
@@ -208,7 +208,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 6f52bdeeafd82404da96e75ed0a1b4c3, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -304,12 +304,12 @@ GameObject:
   - component: {fileID: 5302151863087356657}
   - component: {fileID: 2892597561964751660}
   m_Layer: 0
-  m_Name: DoorSfx
+  m_Name: DoorSFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5302151863087356657
 Transform:
   m_ObjectHideFlags: 0
@@ -336,7 +336,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: e8d448629ac78134f9e6bf602492457d, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -432,12 +432,12 @@ GameObject:
   - component: {fileID: 5474105493064006921}
   - component: {fileID: 7166647445097015105}
   m_Layer: 0
-  m_Name: Notesfx
+  m_Name: NoteSFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5474105493064006921
 Transform:
   m_ObjectHideFlags: 0
@@ -464,7 +464,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: ecf9b604e62bf7d43805823965cf60f0, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -565,7 +565,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7197174157646742236
 Transform:
   m_ObjectHideFlags: 0
@@ -592,7 +592,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: f84ba850212ff75499c8f1dedf372e1f, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -688,12 +688,12 @@ GameObject:
   - component: {fileID: 4793846635315040572}
   - component: {fileID: 1178918300686031122}
   m_Layer: 0
-  m_Name: generatorsfx
+  m_Name: GeneratorSFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4793846635315040572
 Transform:
   m_ObjectHideFlags: 0
@@ -720,7 +720,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 7c240ac4eca27124fb4ae61a28afdcc4, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.61
   m_Pitch: 1
   Loop: 1
