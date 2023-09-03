@@ -15,8 +15,6 @@ public class NoteInteraction : MonoBehaviour
     private TextAsset noteDoc;
     private string[] notes;
 
-    private Color darkOverlay = Color.black;
-
     [HideInInspector] public bool exitingNote = false;
 
     void Start()
@@ -26,7 +24,6 @@ public class NoteInteraction : MonoBehaviour
         noteUI = gameObject.transform.GetChild(0).gameObject;
         noteSFX = GameObject.Find("NoteSFX").GetComponent<AudioSource>();
         GetNoteList();
-        darkOverlay.a = 0.25f;
     }
 
     private void Update()
@@ -36,7 +33,6 @@ public class NoteInteraction : MonoBehaviour
 
     public void PickUpNote()
     {
-        gameObject.GetComponent<Image>().color = darkOverlay;
         noteObj = interactorscr.interactObj; // Gets the object for the physical note by having the Interactor script call this on interat.
         noteUI.SetActive(true);
 
@@ -55,7 +51,6 @@ public class NoteInteraction : MonoBehaviour
 
     public void ExitNote()
     {
-        gameObject.GetComponent<Image>().color = Color.clear;
         exitingNote = true;
 
         // Hide the note display panel

@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 using UnityEngine.UI;
 using EvolveGames;
 using UnityEngine.SceneManagement;
 using System;
-using System.Runtime.ConstrainedExecution;
 
 public class Visibility : MonoBehaviour
 {
@@ -37,9 +37,6 @@ public class Visibility : MonoBehaviour
     private bool sprintMod = false;
 
     private bool godMode = false;
-    private GameObject enemy;
-    public float enemyMod = 2; // How much to multiply visibility gain by if the player is nearby the enemy.
-    private int enemyNearby = 0; // C# is evil and true/false aren't treated as 1/0 like in other languages, so we're just gonna use an int in place of a bool.
 
     // Start is called before the first frame update
     void Start()
@@ -52,8 +49,6 @@ public class Visibility : MonoBehaviour
         visIcon = gameObject.transform.GetChild(1).GetComponent<Image>();
 
         iconAnimator = gameObject.transform.GetChild(1).GetComponent<Animator>();
-
-        enemy = GameObject.Find("ENEMY");
     }
 
     // Update is called once per frame
@@ -62,8 +57,6 @@ public class Visibility : MonoBehaviour
         godMode = devTools.godMode;
         if (!godMode)
         {
-            visIcon.color = Color.white;
-            CheckEnemyDistance();
             VisibilityStatus();
 
             isSprinting = staminaScript.weAreSprinting;
@@ -76,8 +69,6 @@ public class Visibility : MonoBehaviour
             if (playerVisible && !visChange) { StartCoroutine(GainVisibility()); }
             if (!playerVisible && !visChange) { StartCoroutine(LoseVisibility()); }
         }
-
-        else { visIcon.color = Color.green; }
     }
 
     void VisibilityStatus() // Effects that take place based on the level of the player's visibility.
@@ -125,7 +116,7 @@ public class Visibility : MonoBehaviour
         visChange = true;
         while (playerVisible && visibility < maxVisibility)
         {
-            visibility += lightVisGain * Time.deltaTime + (lightVisGain * Time.deltaTime * enemyMod * enemyNearby); // Regular vis gain will be multiplied by the enemyMod if the enemy is nearby.
+            visibility += lightVisGain * Time.deltaTime;
             UpdateOverlay();
             yield return new WaitForSeconds(Time.deltaTime);
         }
@@ -149,7 +140,7 @@ public class Visibility : MonoBehaviour
         sprintMod = true;
         while (isSprinting && visibility < maxVisibility)
         {
-            visibility += noiseVisGain * Time.deltaTime + (noiseVisGain * Time.deltaTime * enemyMod * enemyNearby); // Regular vis gain will be multiplied by the enemyMod if the enemy is nearby.
+            visibility += noiseVisGain * Time.deltaTime;
             UpdateOverlay();
             yield return new WaitForSeconds(Time.deltaTime);
         }
@@ -161,12 +152,5 @@ public class Visibility : MonoBehaviour
         Color currentAlpha = visOverlay.color;
         currentAlpha.a = visibility / maxVisibility;
         visOverlay.color = currentAlpha;
-    }
-
-    void CheckEnemyDistance()
-    {
-        float distance = Vector3.Distance(playerObject.transform.position, enemy.transform.position);
-        if (distance < 50) { enemyNearby = 1; }
-        else { enemyNearby = 0; }
     }
 }
