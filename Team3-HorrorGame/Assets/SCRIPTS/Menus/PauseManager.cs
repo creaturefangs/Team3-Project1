@@ -55,6 +55,7 @@ public class PauseManager : MonoBehaviour
         Time.timeScale = 1f;
         Debug.Log("Loading Menu...");
         SceneManager.LoadScene("MAINMENU");
+        AudioListener.pause = false;
     }
 
     public void QuitGame()

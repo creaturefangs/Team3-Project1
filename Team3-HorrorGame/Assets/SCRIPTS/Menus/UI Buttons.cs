@@ -35,4 +35,9 @@ public class UIButtons : MonoBehaviour
     {
         SceneManager.LoadScene("PLAYTEST");
     }
+
+    public void OnClickCutsceneOne()
+    {
+        SceneManager.LoadScene("INTROCUTSCENE");
+    }
 }
