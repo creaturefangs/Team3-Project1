@@ -51,6 +51,18 @@ public class Interactorscr : MonoBehaviour
                 {
                     interactSFX = GameObject.Find("DoorSFX").GetComponent<AudioSource>();
                 }
+                else if (interactType == "pills")
+                {
+                    interactSFX = GameObject.Find("pillsSFX").GetComponent<AudioSource>();
+                }
+                else if (interactType == "key")
+                {
+                    interactSFX = GameObject.Find("keySFX").GetComponent<AudioSource>();
+                }
+                else if (interactType == "radio")
+                {
+                    interactSFX = GameObject.Find("radioSFX").GetComponent<AudioSource>();
+                }
                 if (interactSFX != null) { interactSFX.Play(); }
                 onInteract.Invoke();
                 Debug.Log("Player interacted with: " + interactObj.name);

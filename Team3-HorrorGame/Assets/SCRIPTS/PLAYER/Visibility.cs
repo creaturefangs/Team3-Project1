@@ -88,7 +88,7 @@ public class Visibility : MonoBehaviour
             //set the cursor to visible
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
-            SceneManager.LoadScene("GAMEOVER");
+            Debug.Log("SPAWN ENEMY");
         }
 
         else if (visibility >= visDanger)
