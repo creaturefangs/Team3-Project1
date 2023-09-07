@@ -85,9 +85,6 @@ public class Visibility : MonoBehaviour
         // Handle if statements in descending order since otherwise it would stick to the first "if" statement (since it's the lowest and wouldn't check the other else-if statements).
         if (visibility >= maxVisibility)
         {
-            //set the cursor to visible
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
             Debug.Log("SPAWN ENEMY");
         }
 

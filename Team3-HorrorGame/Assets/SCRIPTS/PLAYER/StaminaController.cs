@@ -20,8 +20,8 @@ public class StaminaController : MonoBehaviour
     [Range(0, 50)][SerializeField] private float staminaRegen = 40.0f;
 
     [Header("Stamina UI Elements")]
-    [SerializeField] private Image staminaProgressBar = null;
-    [SerializeField] private CanvasGroup sliderCanvasGroup = null;
+    [SerializeField] private Image staminaProgressBar;
+    [SerializeField] private CanvasGroup sliderCanvasGroup;
 
     [SerializeField] EvolveGames.PlayerController playerController;
     private DevTools devTools;
@@ -35,6 +35,8 @@ public class StaminaController : MonoBehaviour
     private void Start()
     {
         playerController = GetComponent<EvolveGames.PlayerController>();
+        sliderCanvasGroup = GameObject.Find("StaminaBar").GetComponent<CanvasGroup>();
+        staminaProgressBar = GameObject.Find("StaminaBar_Fill").GetComponent<Image>();
         devTools = gameObject.GetComponent<DevTools>();
     }
 
@@ -157,8 +159,7 @@ public class StaminaController : MonoBehaviour
     // FEEDBACK //
     private IEnumerator StaminaDrained() // Stamina bar background flashes red 
     {
-        GameObject staminaBG = sliderCanvasGroup.transform.GetChild(0).gameObject;
-        Image background = staminaBG.GetComponent<Image>();
+        Image background = GameObject.Find("StaminaBar_Background").GetComponent<Image>();
         for (int i = 0; i < 3; i++)
         {
             yield return new WaitForSeconds(0.25f);
@@ -172,8 +173,7 @@ public class StaminaController : MonoBehaviour
     private IEnumerator InvalidSprint() // Activates when player tries to sprint while unable to.
     {
         if (staminaHidden) { StartCoroutine(ShowStamina(0.01f)); }
-        GameObject staminaBG = sliderCanvasGroup.transform.GetChild(0).gameObject;
-        Image background = staminaBG.GetComponent<Image>();
+        Image background = GameObject.Find("StaminaBar_Background").GetComponent<Image>();
 
         // Bar background flashes red once before going back to normal.
         background.color = Color.red;
