@@ -50,13 +50,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e33437d55965aa54da235b86fca0247e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentState: 0
   player: {fileID: 0}
   goreSFX: {fileID: 6184108911190706099}
   playerDmgUI: {fileID: 0}
+  chase: 0
+  staring: 0
+  contest: 0
+  visibility: 0
   waypoints: []
-  detectionRange: 10
+  detectionRange: 20
   patrolSpeed: 2
-  chaseSpeed: 4
+  minChaseSpeed: 10
+  chaseSpeed: 12.5
+  maxChaseSpeed: 15
+  canStalk: 1
 --- !u!65 &5140872292904901083
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -118,7 +126,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -25
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: e25eca7a36a6d8747bf53015085ce1ee, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

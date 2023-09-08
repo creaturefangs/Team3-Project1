@@ -35,6 +35,7 @@ public class Visibility : MonoBehaviour
     private bool isSprinting;
     private bool visChange = false;
     private bool sprintMod = false;
+    [HideInInspector] public bool enemyChase = false;
 
     private bool godMode = false;
     private GameObject enemy;
@@ -60,7 +61,7 @@ public class Visibility : MonoBehaviour
     void Update()
     {
         godMode = devTools.godMode;
-        if (!godMode)
+        if (!godMode && !enemyChase)
         {
             visIcon.color = Color.white;
             CheckEnemyDistance();
@@ -77,7 +78,7 @@ public class Visibility : MonoBehaviour
             if (!playerVisible && !visChange) { StartCoroutine(LoseVisibility()); }
         }
 
-        else { visIcon.color = Color.green; }
+        else if (godMode) { visIcon.color = Color.green; }
     }
 
     void VisibilityStatus() // Effects that take place based on the level of the player's visibility.
@@ -85,7 +86,7 @@ public class Visibility : MonoBehaviour
         // Handle if statements in descending order since otherwise it would stick to the first "if" statement (since it's the lowest and wouldn't check the other else-if statements).
         if (visibility >= maxVisibility)
         {
-            Debug.Log("SPAWN ENEMY");
+            // Enemy spawns!
         }
 
         else if (visibility >= visDanger)
@@ -103,11 +104,13 @@ public class Visibility : MonoBehaviour
         else if (visibility >= visSafe)
         {
             ChangeIcon("Visibility-Safe");
+            iconAnimator.SetBool("Animate", false);
         }
 
         else if (visibility < visSafe)
         {
             ChangeIcon("Visibility-Hidden");
+            iconAnimator.SetBool("Animate", false);
         }
     }
 

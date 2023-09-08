@@ -15,6 +15,7 @@ public class BasicEnemyAI : MonoBehaviour
     public GameObject playerDmgUI;
 
     private GameObject blinkOverlay;
+    public bool chase = false;
     public bool staring = false;
     private bool stalking = false;
     public bool contest = false;
@@ -25,9 +26,17 @@ public class BasicEnemyAI : MonoBehaviour
     private float maxVis;
 
     public Transform[] waypoints;
-    public float detectionRange = 10f;
+    public float detectionRange = 20f;
+
     public float patrolSpeed = 2f;
-    public float chaseSpeed = 4f;
+    public float minChaseSpeed = 10f;
+    public float chaseSpeed;
+    public float maxChaseSpeed = 15f;
+
+    private float chaseCooldown = 15f;
+    private float stalkCooldown = 10f;
+    private bool canChase = true;
+    public bool canStalk = true;
 
     private Transform currentWaypoint;
     private int waypointIndex = 0;
@@ -64,7 +73,7 @@ public class BasicEnemyAI : MonoBehaviour
                 if (!stalking) { Stalk(); }
                 break;
             case AIState.Chase:
-                Chase();
+                if (!chase) { StartCoroutine(Chase()); }
                 break;
         }
         CheckIfStaring();
@@ -73,16 +82,16 @@ public class BasicEnemyAI : MonoBehaviour
 
     void SetState()
     {
-        if (visibility >= maxVis) { Debug.Log("holy freaking bingle whaaat"); } // currentState = AIState.Chase;
-        else if (visibility >= visScript.visCaution) { currentState = AIState.Stalk; }
-        else if (visibility < visScript.visCaution && !stalking) { currentState = AIState.Idle; } // Originally AIState.Patrol
+        if (visibility >= maxVis) { currentState = AIState.Chase; }
+        else if (visibility >= visScript.visCaution && canStalk) { currentState = AIState.Stalk; }
+        else if (visibility < visScript.visCaution && currentState != AIState.Stalk) { currentState = AIState.Idle; } // Originally AIState.Patrol
     }
 
 
     // ENEMY STATES //
     void Idle()
     {
-        
+        gameObject.transform.position = idlePos;
     }
 
     private void Patrol()
@@ -106,28 +115,31 @@ public class BasicEnemyAI : MonoBehaviour
     private void Stalk() // At around medium visibility, enemy will appear at a randomly selected point in a radius around the player.
     {
         stalking = true;
-        Vector3 position = new Vector3(player.transform.position.x + Random.Range(-40, 41), player.transform.position.y, player.transform.position.z + Random.Range(-40, 41)); // Random.rotation.z, (Random.insideUnitSphere * 30).x
-        transform.position = position;
-        GetTerrainHeight();
-        while (Vector3.Distance(transform.position, player.transform.position) < 20 || CheckIfVisible()) // While enemy moves to a point that's visible to the player, go to a new point until not seen. Orig CheckIfVisible().
-        {
-            Debug.Log("Enemy respawned: too close to player.");
-            Vector3 newPos = new Vector3(player.transform.position.x + Random.Range(-40, 41), player.transform.position.y, player.transform.position.z + Random.Range(-40, 41));
-            transform.position = newPos;
-            GetTerrainHeight();
-        }
+        SpawnEnemy(40f);
     }
 
-    private void Chase()
+    private IEnumerator Chase()
     {
-        float step = chaseSpeed * Time.deltaTime;
-        transform.position = Vector3.MoveTowards(transform.position, player.transform.position, step); // Enemy moves towards player from current position at given chase speed.
+        chase = true;
+        visScript.enemyChase = true;
+        SpawnEnemy(detectionRange - 5);
+        chaseSpeed = minChaseSpeed;
+        yield return new WaitForSeconds(1f); // Headstart! Do SFX here to indicate chase start.
 
-        // Check if player is out of detection range
-        if (Vector3.Distance(transform.position, player.transform.position) > detectionRange)
+        while (Vector3.Distance(transform.position, player.transform.position) < detectionRange)
         {
-            currentState = AIState.Idle; // Originally AIState.Patrol
+            Debug.Log(Vector3.Distance(transform.position, player.transform.position));
+            if (chaseSpeed < maxChaseSpeed) { chaseSpeed += 0.01f; }
+            float step = chaseSpeed * Time.deltaTime;
+            transform.position = Vector3.MoveTowards(transform.position, player.transform.position, step); // Enemy moves towards player from current position at given chase speed.
+            yield return new WaitForSeconds(Time.deltaTime);
         }
+
+        // When player gets out of range...
+        currentState = AIState.Idle; // Originally AIState.Patrol
+        visScript.visibility = visScript.visCaution;
+        chase = false;
+        visScript.enemyChase = false;
     }
 
 
@@ -160,7 +172,6 @@ public class BasicEnemyAI : MonoBehaviour
         stalking = false;
         currentState = AIState.Idle; // Enemy leaves the player alone and goes back to patrolling. Orig AIState.Patrol.
         visScript.visibility = 0;
-        gameObject.transform.position = idlePos;
 
         while (blinkOverlay.GetComponent<Image>().color.a > 0)
         {
@@ -171,6 +182,8 @@ public class BasicEnemyAI : MonoBehaviour
         }
         blinkOverlay.SetActive(false);
         contest = false;
+        // canStalk = false;
+        StartCoroutine(Cooldown(canStalk, stalkCooldown));
     }
 
     bool CheckIfVisible() // Check if enemy is visible anywhere on screen.
@@ -210,5 +223,28 @@ public class BasicEnemyAI : MonoBehaviour
         }
         else { yPos = transform.position.y; }
         transform.position = new Vector3(transform.position.x, transform.position.y + yPos - 1, transform.position.z);
+    }
+
+    void SpawnEnemy(float range)
+    {
+        Vector3 position = new Vector3(player.transform.position.x + Random.Range(-range, range + 1), player.transform.position.y, player.transform.position.z + Random.Range(-range, range + 1));
+        transform.position = position;
+        GetTerrainHeight();
+        while (Vector3.Distance(transform.position, player.transform.position) < (range / 2) || CheckIfVisible()) // While enemy moves to a point that's visible or too close to the player, go to a new point until not seen / far enough away.
+        {
+            Debug.Log("Enemy respawned: too close to player or visible to player.");
+            Vector3 newPos = new Vector3(player.transform.position.x + Random.Range(-range, range + 1), player.transform.position.y, player.transform.position.z + Random.Range(-range, range + 1));
+            transform.position = newPos;
+            GetTerrainHeight();
+        }
+    }
+
+    private IEnumerator Cooldown(bool can_act, float cooldown)
+    {
+        Debug.Log("Cooldown started!");
+        float timeLeft = cooldown;
+        while (timeLeft > 0) { timeLeft -= Time.deltaTime; yield return new WaitForSeconds(Time.deltaTime); }
+        can_act = true;
+        yield return can_act;
     }
 }
