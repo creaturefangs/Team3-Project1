@@ -19,6 +19,8 @@ namespace EvolveGames
         [HideInInspector] public bool DefiniteHide;
         bool ItemChangeLogo;
 
+        private GameObject flashlight;
+
         private void Start()
         {
             if (ani == null && GetComponent<Animator>()) ani = GetComponent<Animator>();
@@ -44,6 +46,14 @@ namespace EvolveGames
 
             if (Input.GetAxis("Mouse ScrollWheel") > 0f) { ItemIdInt++; }
             if (Input.GetAxis("Mouse ScrollWheel") < 0f) { ItemIdInt--; }
+
+            if (Input.GetKeyDown(KeyCode.Mouse0) && GameObject.Find("Flashlight"))
+            {
+                AudioSource sound = GameObject.Find("Flashlight").GetComponent<AudioSource>();
+                sound.Play();
+                GameObject light = GameObject.Find("Flashlight").transform.GetChild(0).gameObject;
+                light.SetActive(!light.activeSelf);
+            }
 
             if(Input.GetKeyDown(KeyCode.H))
             {

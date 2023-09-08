@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
@@ -26,17 +27,12 @@ public class BasicEnemyAI : MonoBehaviour
     private float maxVis;
 
     public Transform[] waypoints;
-    public float detectionRange = 20f;
+    public float detectionRange = 30f;
 
     public float patrolSpeed = 2f;
     public float minChaseSpeed = 10f;
     public float chaseSpeed;
     public float maxChaseSpeed = 15f;
-
-    private float chaseCooldown = 15f;
-    private float stalkCooldown = 10f;
-    private bool canChase = true;
-    public bool canStalk = true;
 
     private Transform currentWaypoint;
     private int waypointIndex = 0;
@@ -83,8 +79,13 @@ public class BasicEnemyAI : MonoBehaviour
     void SetState()
     {
         if (visibility >= maxVis) { currentState = AIState.Chase; }
-        else if (visibility >= visScript.visCaution && canStalk) { currentState = AIState.Stalk; }
-        else if (visibility < visScript.visCaution && currentState != AIState.Stalk) { currentState = AIState.Idle; } // Originally AIState.Patrol
+        else if (visibility >= visScript.visCaution && !stalking)
+        {
+            int chance = Random.Range(1, 4);
+            Debug.Log(chance);
+            if (chance != 3) { currentState = AIState.Stalk; }
+        }
+        else if (visibility < visScript.visCaution && !stalking) { currentState = AIState.Idle; } // Originally AIState.Patrol
     }
 
 
@@ -116,6 +117,7 @@ public class BasicEnemyAI : MonoBehaviour
     {
         stalking = true;
         SpawnEnemy(40f);
+        StartCoroutine(IgnoreEnemy());
     }
 
     private IEnumerator Chase()
@@ -136,8 +138,9 @@ public class BasicEnemyAI : MonoBehaviour
         }
 
         // When player gets out of range...
+        Debug.Log("Chase stopped: out of range.");
         currentState = AIState.Idle; // Originally AIState.Patrol
-        visScript.visibility = visScript.visCaution;
+        visScript.visibility = 0;
         chase = false;
         visScript.enemyChase = false;
     }
@@ -146,7 +149,7 @@ public class BasicEnemyAI : MonoBehaviour
     // MISCELLANEOUS //
     void OnTriggerEnter(Collider other)
     {
-
+        chaseSpeed = minChaseSpeed; // Enemy slows down when attacking to give player window of opportunity to run.
         goreSFX.Play();
         playerDmgUI.SetActive(true);
 
@@ -155,35 +158,37 @@ public class BasicEnemyAI : MonoBehaviour
 
     IEnumerator StaringContest() // If player looks at enemy while enemy is stalking them and player continues to stare, enemy disappears.
     {
-        contest = true;
         float stareLength = Random.Range(2.5f, 5.1f);
-        yield return new WaitForSeconds(stareLength);
-
-        blinkOverlay.SetActive(true);
-        while (blinkOverlay.GetComponent<Image>().color.a < 1)
+        while (staring)
         {
-            yield return new WaitForSeconds(0.01f);
-            Color currentAlpha = blinkOverlay.GetComponent<Image>().color;
-            currentAlpha.a += 0.25f;
-            blinkOverlay.GetComponent<Image>().color = currentAlpha;
-        }
+            Debug.Log("Staring contest started...");
+            contest = true;
+            yield return new WaitForSeconds(stareLength);
 
-        yield return new WaitForSeconds(0.1f);
-        stalking = false;
-        currentState = AIState.Idle; // Enemy leaves the player alone and goes back to patrolling. Orig AIState.Patrol.
-        visScript.visibility = 0;
+            blinkOverlay.SetActive(true);
+            while (blinkOverlay.GetComponent<Image>().color.a < 1)
+            {
+                yield return new WaitForSeconds(0.01f);
+                Color currentAlpha = blinkOverlay.GetComponent<Image>().color;
+                currentAlpha.a += 0.25f;
+                blinkOverlay.GetComponent<Image>().color = currentAlpha;
+            }
 
-        while (blinkOverlay.GetComponent<Image>().color.a > 0)
-        {
-            yield return new WaitForSeconds(0.01f);
-            Color currentAlpha = blinkOverlay.GetComponent<Image>().color;
-            currentAlpha.a -= 0.25f;
-            blinkOverlay.GetComponent<Image>().color = currentAlpha;
+            yield return new WaitForSeconds(0.1f);
+            stalking = false;
+            currentState = AIState.Idle; // Enemy leaves the player alone and goes back to patrolling. Orig AIState.Patrol.
+            visScript.visibility = 0;
+
+            while (blinkOverlay.GetComponent<Image>().color.a > 0)
+            {
+                yield return new WaitForSeconds(0.01f);
+                Color currentAlpha = blinkOverlay.GetComponent<Image>().color;
+                currentAlpha.a -= 0.25f;
+                blinkOverlay.GetComponent<Image>().color = currentAlpha;
+            }
+            blinkOverlay.SetActive(false);
+            contest = false;
         }
-        blinkOverlay.SetActive(false);
-        contest = false;
-        // canStalk = false;
-        StartCoroutine(Cooldown(canStalk, stalkCooldown));
     }
 
     bool CheckIfVisible() // Check if enemy is visible anywhere on screen.
@@ -197,7 +202,7 @@ public class BasicEnemyAI : MonoBehaviour
     {
         LayerMask mask = ~LayerMask.GetMask("UI");
         RaycastHit hit;
-        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, 50, mask))
+        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, 75, mask))
         {
             if (hit.collider.gameObject == gameObject) { staring = true; }
             else { staring = false; }
@@ -213,16 +218,10 @@ public class BasicEnemyAI : MonoBehaviour
 
     void GetTerrainHeight() // Makes enemy placed just above the terrain.
     {
-        float yPos;
-        RaycastHit hit;
-        if (Physics.Raycast(transform.localPosition, transform.TransformDirection(Vector3.down), out hit))
-        {
-            Debug.Log($"DOWN | Terrain Pos: {hit.transform.position.y} Distance: {hit.distance} Original Enemy Pos: {transform.position.y}");
-            if (hit.collider.gameObject.name == "Terrain") { yPos = hit.distance; }
-            else { yPos = transform.position.y; }
-        }
-        else { yPos = transform.position.y; }
-        transform.position = new Vector3(transform.position.x, transform.position.y + yPos - 1, transform.position.z);
+        Vector3 newPos = transform.position;
+        Renderer renderer = GetComponent<Renderer>();
+        newPos.y = Terrain.activeTerrain.SampleHeight(transform.position) + (renderer.bounds.size.y / 2) - 1; // Accounts for the enemy's height AND terrain height to place enemy vertically.
+        transform.position = newPos;
     }
 
     void SpawnEnemy(float range)
@@ -239,12 +238,10 @@ public class BasicEnemyAI : MonoBehaviour
         }
     }
 
-    private IEnumerator Cooldown(bool can_act, float cooldown)
+    private IEnumerator IgnoreEnemy()
     {
-        Debug.Log("Cooldown started!");
-        float timeLeft = cooldown;
-        while (timeLeft > 0) { timeLeft -= Time.deltaTime; yield return new WaitForSeconds(Time.deltaTime); }
-        can_act = true;
-        yield return can_act;
+        float timer = 5f;
+        while (timer > 0 && !staring) { timer -= Time.deltaTime; yield return new WaitForSeconds(Time.deltaTime); }
+        if (timer <= 0 && !staring) { currentState = AIState.Chase; visScript.visibility = maxVis; stalking = false; } // Enemy chases player if not stared at in time.
     }
 }

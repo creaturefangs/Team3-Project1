@@ -71,7 +71,7 @@ public class Visibility : MonoBehaviour
             if (isSprinting && !sprintMod) { StartCoroutine(SprintVisibility()); } // If player is sprinting and sprint is not already being applied to visibility...
 
             currentItem = itemScript.ItemIdInt;
-            if (currentItem == 3 || currentItem == 4) { playerVisible = true; } // Player gets increasing visibility if holding flashlight/lantern.
+            if (LightOn() || currentItem == 4) { playerVisible = true; } // Player gets increasing visibility if holding turned on flashlight/lantern.
             else { playerVisible = false; }
 
             if (playerVisible && !visChange) { StartCoroutine(GainVisibility()); }
@@ -168,5 +168,17 @@ public class Visibility : MonoBehaviour
         float distance = Vector3.Distance(playerObject.transform.position, enemy.transform.position);
         if (distance < 50) { enemyNearby = 1; }
         else { enemyNearby = 0; }
+    }
+
+    bool LightOn()
+    {
+        GameObject flashlight = GameObject.Find("Flashlight");
+        if (flashlight)
+        {
+            GameObject light = flashlight.transform.GetChild(0).gameObject;
+            if (light.activeSelf) { return true; }
+            else { return false; }
+        }
+        else { return false; }
     }
 }
