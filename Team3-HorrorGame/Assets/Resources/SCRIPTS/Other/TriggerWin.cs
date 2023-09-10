@@ -7,7 +7,8 @@ public class TriggerWin : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        SceneManager.LoadScene("YOUWIN");
-
+        SceneManager.LoadScene("CREDITS");
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 }
