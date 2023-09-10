@@ -1255,8 +1255,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "UI, 2D Artist, Level Designer, Mechanics Designer \n\n\nProject Manager,
     Conceptual Artist, Level Designer, Programmer, Game Director\n\n\nUX Designer,
-    Programmer, Level Designer\n\n\n\nAsset Contributor, Sound Design, Playtester,
-    2D Artist  "
+    Programmer, Level Designer, Asset Contributer\n\n\n\nAsset Contributor, Sound
+    Design, Playtester, 2D Artist  "
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9f3f5cff49fcacb418a3459f1b12f4d2, type: 2}
   m_sharedMaterial: {fileID: -5590002419640591430, guid: 9f3f5cff49fcacb418a3459f1b12f4d2, type: 2}
