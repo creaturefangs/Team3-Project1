@@ -44,6 +44,53 @@ MonoBehaviour:
   opacity:
     overrideState: 1
     value: 1
+--- !u!114 &-5804592382954805599
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48a79b01ea5641d4aa6daa2e23605641, type: 3}
+  m_Name: Bloom
+  m_EditorClassIdentifier: 
+  active: 1
+  enabled:
+    overrideState: 1
+    value: 1
+  intensity:
+    overrideState: 1
+    value: 5.4
+  threshold:
+    overrideState: 1
+    value: 4.18
+  softKnee:
+    overrideState: 0
+    value: 0.5
+  clamp:
+    overrideState: 0
+    value: 65472
+  diffusion:
+    overrideState: 0
+    value: 7
+  anamorphicRatio:
+    overrideState: 0
+    value: 0
+  color:
+    overrideState: 0
+    value: {r: 1, g: 1, b: 1, a: 1}
+  fastMode:
+    overrideState: 0
+    value: 0
+  dirtTexture:
+    overrideState: 1
+    value: {fileID: 2800000, guid: c5e791cb2bf594d32a23bb2697f677d3, type: 3}
+    defaultState: 1
+  dirtIntensity:
+    overrideState: 1
+    value: 7.62
 --- !u!114 &-4857918190232058525
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -114,9 +161,9 @@ MonoBehaviour:
   - {fileID: 3639698308421017781}
   - {fileID: -4857918190232058525}
   - {fileID: -3675588257684660531}
-  - {fileID: 6925580236061570453}
   - {fileID: -7393724047364345700}
   - {fileID: 6632922766797394572}
+  - {fileID: -5804592382954805599}
 --- !u!114 &3639698308421017781
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -1450,40 +1497,3 @@ MonoBehaviour:
   sampleCount:
     overrideState: 0
     value: 4
---- !u!114 &6925580236061570453
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a34fa72bd4185749832024e9c8010bf, type: 3}
-  m_Name: ScreenSpaceReflections
-  m_EditorClassIdentifier: 
-  active: 1
-  enabled:
-    overrideState: 1
-    value: 0
-  preset:
-    overrideState: 1
-    value: 4
-  maximumIterationCount:
-    overrideState: 1
-    value: 16
-  resolution:
-    overrideState: 1
-    value: 0
-  thickness:
-    overrideState: 1
-    value: 8
-  maximumMarchDistance:
-    overrideState: 1
-    value: 200
-  distanceFade:
-    overrideState: 1
-    value: 1
-  vignette:
-    overrideState: 1
-    value: 1
