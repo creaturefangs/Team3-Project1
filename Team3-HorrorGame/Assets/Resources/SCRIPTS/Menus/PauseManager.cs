@@ -1,7 +1,9 @@
+using EvolveGames;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using static Unity.VisualScripting.Antlr3.Runtime.Tree.TreeWizard;
 
 public class PauseManager : MonoBehaviour
 {
@@ -9,6 +11,13 @@ public class PauseManager : MonoBehaviour
     public GameObject pauseMenuUI;
     public GameObject playerUI;
     public AudioSource pauseSFX;
+
+    private Visibility visibility;
+
+    void Start()
+    {
+        visibility = GameObject.Find("VisibilityUI").GetComponent<Visibility>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -27,6 +36,8 @@ public class PauseManager : MonoBehaviour
 
     public void Resume()
     {
+        visibility.visChange = false; // Stops visibility gain/loss from breaking if their coroutines are interrupted by a pause.
+
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         Time.timeScale = 1f;

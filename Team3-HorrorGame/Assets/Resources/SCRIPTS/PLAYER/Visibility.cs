@@ -33,9 +33,8 @@ public class Visibility : MonoBehaviour
     private bool playerVisible = false;
     private int currentItem; // The current item the player is holding (as int/index).
     private bool isSprinting;
-    private bool visChange = false;
+    [HideInInspector] public bool visChange = false;
     private bool sprintMod = false;
-    [HideInInspector] public bool enemyChase = false;
 
     private bool godMode = false;
     private GameObject enemy;
@@ -61,7 +60,7 @@ public class Visibility : MonoBehaviour
     void Update()
     {
         godMode = devTools.godMode;
-        if (!godMode && !enemyChase)
+        if (!godMode && !enemy.GetComponent<BasicEnemyAI>().chase)
         {
             visIcon.color = Color.white;
             CheckEnemyDistance();
@@ -156,7 +155,7 @@ public class Visibility : MonoBehaviour
         sprintMod = false;
     }
 
-    void UpdateOverlay()
+    public void UpdateOverlay()
     {
         Color currentAlpha = visOverlay.color;
         currentAlpha.a = visibility / maxVisibility;
