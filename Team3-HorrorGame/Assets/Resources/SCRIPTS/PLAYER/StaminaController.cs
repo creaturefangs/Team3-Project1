@@ -53,7 +53,7 @@ public class StaminaController : MonoBehaviour
                 StaminaJump();
             }
 
-            if (weAreSprinting)
+            if (weAreSprinting && playerController.Moving)
             {
                 if (playerStamina >= 0 && !draining) // If player is not out of stamina...
                 {
