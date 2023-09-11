@@ -20,7 +20,7 @@ public class OnTriggerJumpScare : MonoBehaviour
 
     void Update()
     {
-        if (monster.activeSelf == true)
+        if (monster.activeSelf)
         {
             timer -= Time.deltaTime;
         }
@@ -45,7 +45,7 @@ public class OnTriggerJumpScare : MonoBehaviour
             screenShake.Shake();
 
             // Optional: Disable the jump scare trigger to prevent it from happening again.
-            jumpscareTrigger.SetActive(false);
+            //jumpscareTrigger.SetActive(false);
         }
     }
 
