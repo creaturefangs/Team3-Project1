@@ -259,6 +259,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5485055524033968424, guid: 83cebed10f36a714daa48b6b8501434e, type: 3}
+      propertyPath: pickupPills
+      value: 
+      objectReference: {fileID: 1779425533}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2828,6 +2832,93 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a1785a487391b404989d2f22e9dfc99d, type: 3}
   m_PrefabInstance: {fileID: 1049777722}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1118332718
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1118332722}
+  - component: {fileID: 1118332721}
+  - component: {fileID: 1118332720}
+  - component: {fileID: 1118332719}
+  m_Layer: 0
+  m_Name: TriggerJumpscare 2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1118332719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1118332718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 340131cc05aeff449bb5233dc0261ef8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraTransform: {fileID: 1020859655}
+  shakeDuration: 2
+  shakeIntensity: 0.27
+--- !u!114 &1118332720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1118332718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5da0449eae5159469e73da51e9d3ae4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  monster: {fileID: 2047083051}
+  jumpScareSound: {fileID: 8300000, guid: ff003e88fcc6b46479d0f5f58ddad981, type: 3}
+  jumpscareTrigger: {fileID: 1118332718}
+  disableAfterSeconds: 3
+  timer: 0
+--- !u!65 &1118332721
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1118332718}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.6547852, y: 59.73621, z: 140.39673}
+  m_Center: {x: 0.8273926, y: 18.253931, z: 0.8847046}
+--- !u!4 &1118332722
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1118332718}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 76.4, y: 4.496072, z: 589.6}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1125069204
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4348,7 +4439,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 7c240ac4eca27124fb4ae61a28afdcc4, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.523
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -4734,7 +4825,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5202511369798978204, guid: 1fc4e39f865350a4f9275ab85ec55b3c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 18.24
+      value: 17.44
       objectReference: {fileID: 0}
     - target: {fileID: 5202511369798978204, guid: 1fc4e39f865350a4f9275ab85ec55b3c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4827,6 +4918,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0405dd62e813e2429c88e24b96da4f3, type: 3}
+--- !u!1 &1779425533 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6154010920557489394, guid: c0405dd62e813e2429c88e24b96da4f3, type: 3}
+  m_PrefabInstance: {fileID: 1779425532}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1827408729
 GameObject:
   m_ObjectHideFlags: 0
@@ -5090,7 +5186,7 @@ Transform:
   m_GameObject: {fileID: 1964533507}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 728.7, y: 4.496072, z: 601.9736}
+  m_LocalPosition: {x: 627.4, y: 4.496072, z: 601.9736}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5302,6 +5398,10 @@ PrefabInstance:
     - target: {fileID: 2748291923736130025, guid: f05717ffda430ee479de5788c1c86d57, type: 3}
       propertyPath: m_Name
       value: Latern
+      objectReference: {fileID: 0}
+    - target: {fileID: 3467934584465231997, guid: f05717ffda430ee479de5788c1c86d57, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5624315471183693521, guid: f05717ffda430ee479de5788c1c86d57, type: 3}
       propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[1].m_Target
@@ -5867,14 +5967,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Radio
       objectReference: {fileID: 0}
-    - target: {fileID: 6919643917349386958, guid: 0e1852078f04651498b6a8a7982b32b7, type: 3}
-      propertyPath: interactType
-      value: radio
-      objectReference: {fileID: 0}
-    - target: {fileID: 6919643917349386958, guid: 0e1852078f04651498b6a8a7982b32b7, type: 3}
-      propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.size
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8695538335918955444, guid: 0e1852078f04651498b6a8a7982b32b7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 280.19
@@ -5938,5 +6030,6 @@ SceneRoots:
   - {fileID: 643127429}
   - {fileID: 971091459}
   - {fileID: 1964533509}
+  - {fileID: 1118332722}
   - {fileID: 1753093875}
   - {fileID: 435771227}

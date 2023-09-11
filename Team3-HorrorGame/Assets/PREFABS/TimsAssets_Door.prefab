@@ -390,18 +390,6 @@ MonoBehaviour:
           m_StringArgument: Door_Open
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 3187974340566569425}
-        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
-        m_MethodName: Play
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Door_Close
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &8278123746367897085
 MonoBehaviour:
   m_ObjectHideFlags: 0

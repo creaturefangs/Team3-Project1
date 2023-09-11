@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0c08372bdcafaf4d9aa1e1ac16ed5a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactType: flashlight
   onInteract:
     m_PersistentCalls:
       m_Calls:
@@ -186,7 +187,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-  ID: 0
 --- !u!65 &6165552936381692250
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -202,7 +202,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
