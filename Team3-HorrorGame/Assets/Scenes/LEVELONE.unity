@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 0.68
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1005331252}
-  m_IndirectSpecularColor: {r: 0.07212726, g: 0.09355388, b: 0.12402692, a: 0.68}
+  m_IndirectSpecularColor: {r: 0.07212464, g: 0.09355142, b: 0.12402385, a: 0.68}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1323,6 +1323,7 @@ Transform:
   - {fileID: 1419550003}
   - {fileID: 1448121535}
   - {fileID: 513841904}
+  - {fileID: 1706094962}
   - {fileID: 1852779678}
   - {fileID: 2116410151}
   m_Father: {fileID: 0}
@@ -4169,7 +4170,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 643127429}
     m_Modifications:
     - target: {fileID: 172672, guid: a11e981b37ff86749a7a41b2999e3199, type: 3}
       propertyPath: m_Name
@@ -4181,23 +4182,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 429048, guid: a11e981b37ff86749a7a41b2999e3199, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.4331
+      value: 1.4331001
       objectReference: {fileID: 0}
     - target: {fileID: 429048, guid: a11e981b37ff86749a7a41b2999e3199, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.4331
+      value: 1.4330999
       objectReference: {fileID: 0}
     - target: {fileID: 429048, guid: a11e981b37ff86749a7a41b2999e3199, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 688.9948
+      value: 624.53326
       objectReference: {fileID: 0}
     - target: {fileID: 429048, guid: a11e981b37ff86749a7a41b2999e3199, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.3159637
+      value: -5.1621704
       objectReference: {fileID: 0}
     - target: {fileID: 429048, guid: a11e981b37ff86749a7a41b2999e3199, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 634.69037
+      value: 34.301453
       objectReference: {fileID: 0}
     - target: {fileID: 429048, guid: a11e981b37ff86749a7a41b2999e3199, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4232,6 +4233,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a11e981b37ff86749a7a41b2999e3199, type: 3}
+--- !u!4 &1706094962 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 429048, guid: a11e981b37ff86749a7a41b2999e3199, type: 3}
+  m_PrefabInstance: {fileID: 1706094961}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1734630264 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8058939032954463381, guid: 0ecd90a976571a749835701cb999f6eb, type: 3}
@@ -5843,4 +5849,3 @@ SceneRoots:
   - {fileID: 1118332722}
   - {fileID: 1753093875}
   - {fileID: 435771227}
-  - {fileID: 1706094961}
