@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8695538335918955444}
   - component: {fileID: 6919643917349386958}
+  - component: {fileID: 6879804437828525047}
   - component: {fileID: 764146350903318028}
   - component: {fileID: 3390603145354684444}
   m_Layer: 8
@@ -29,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 282.0485, y: 1.1618657, z: 18.365906}
-  m_LocalScale: {x: 4.115319, y: 4.115319, z: 4.115319}
+  m_LocalScale: {x: 5.061019, y: 5.061019, z: 5.061019}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4714086099459119777}
@@ -64,9 +65,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 764146350903318028}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: Pause
+      - m_Target: {fileID: 6879804437828525047}
+        m_TargetAssemblyTypeName: RadioManager, Assembly-CSharp
+        m_MethodName: SliderActive
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -76,18 +77,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 764146350903318028}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: Pause
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+--- !u!114 &6879804437828525047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 955596346434169196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02dedadbb5213a0439eca135fda5046b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radioUI: {fileID: 0}
 --- !u!82 &764146350903318028
 AudioSource:
   m_ObjectHideFlags: 0
