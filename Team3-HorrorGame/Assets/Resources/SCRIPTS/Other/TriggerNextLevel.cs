@@ -7,7 +7,7 @@ public class TriggerNextLevel : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        SceneManager.LoadScene("LEVELTHREE");
+        SceneManager.LoadScene("LoadingScreenLVL3");
 
     }
 }

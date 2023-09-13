@@ -15,14 +15,23 @@ EditorBuildSettings:
     path: Assets/Scenes/CREDITS.unity
     guid: 175b83007f3c094408d38ad48f35b17f
   - enabled: 1
+    path: Assets/Scenes/Loading Screens/LoadingScreen.unity
+    guid: fbdd360303784b34e8b5f5529c9e9e08
+  - enabled: 1
     path: Assets/Scenes/INTROCUTSCENE.unity
     guid: 296339446fccb094382c623392de11b1
   - enabled: 1
     path: Assets/Scenes/LEVELONE.unity
     guid: 4bb14e1ce4d559740a731e93f3aeceb4
   - enabled: 1
+    path: Assets/Scenes/Loading Screens/LoadingScreenLVL2.unity
+    guid: 2c67d684f6629834890f5134385efe74
+  - enabled: 1
     path: Assets/Scenes/LEVELTWO.unity
     guid: 846841037e7d35b4d9766c2b7a6968f7
+  - enabled: 1
+    path: Assets/Scenes/Loading Screens/LoadingScreenLVL3.unity
+    guid: c5390e6f38d8f094689977b5bae7352e
   - enabled: 1
     path: Assets/Scenes/LEVELTHREE.unity
     guid: 3415ed785a932d1478b192f99581a807
