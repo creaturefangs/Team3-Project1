@@ -5486,8 +5486,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.9811321, g: 0.94984335, b: 0.8469206, a: 1}
-  m_Intensity: 1
-  m_Range: 6.71
+  m_Intensity: 0.75
+  m_Range: 75
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -7281,6 +7281,7 @@ MonoBehaviour:
   - 100
   - 104
   - 108
+  radioManager: {fileID: 0}
 --- !u!1 &8374843226933034497
 GameObject:
   m_ObjectHideFlags: 0
