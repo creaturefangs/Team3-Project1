@@ -77,11 +77,11 @@ public class Interactorscr : MonoBehaviour
                 }
                 else if (interactType == "beartrap")
                 {
-                    //interactSFX = GameObject.Find("beartrapSFX").GetComponent<AudioSource>();
+                    interactSFX = GameObject.Find("beartrapSFX").GetComponent<AudioSource>();
                 }
                 else if (interactType == "powerswitch")
                 {
-                    //interactSFX = GameObject.Find("beartrapSFX").GetComponent<AudioSource>();
+                    interactSFX = GameObject.Find("powerswitchSFX").GetComponent<AudioSource>();
                     //turns power on in level one 
                     powerOn.powerOn = true;
                 }

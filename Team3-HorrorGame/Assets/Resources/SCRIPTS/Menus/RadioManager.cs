@@ -6,12 +6,18 @@ public class RadioManager : MonoBehaviour
 {
     bool sliderActive;
     public GameObject radioUI;
-    public bool powerOn; 
+    public bool powerOn;
+    public AudioSource radioAudioSource;
+    public AudioClip[] channelClips;
+    private int currentChannelIndex = 0;
+    public RadioChannelSlider channelText;
+
 
     // Start is called before the first frame update
     void Start()
     {
         powerOn = false;
+        //channelText = GameObject.Find("PlayerController").GetComponent<RadioManager>();
     }
 
     // Update is called once per frame
@@ -24,7 +30,7 @@ public class RadioManager : MonoBehaviour
 
         if(powerOn == true)
         {
-
+            PlayChannel();
         }
     }
 
@@ -41,4 +47,21 @@ public class RadioManager : MonoBehaviour
         }
 
     }
+
+    public void PlayChannel(int channelIndex)
+    {
+        if (channelIndex >= 0 && channelIndex < channelClips.Length)
+        {
+            currentChannelIndex = channelIndex;
+            radioAudioSource.clip = channelClips[currentChannelIndex];
+            radioAudioSource.Play();
+            UpdateChannelName();
+        }
+    }
+
+    private void UpdateChannelName()
+    {
+        channelNameText.text = "Channel: " + currentChannelIndex; // Update the channel name text.
+    }
+}
 }
