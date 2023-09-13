@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RadioManager : MonoBehaviour
 {
@@ -10,14 +11,14 @@ public class RadioManager : MonoBehaviour
     public AudioSource radioAudioSource;
     public AudioClip[] channelClips;
     private int currentChannelIndex = 0;
-    public RadioChannelSlider channelText;
+    public RadioChannelSlider radioChannelSlider;
 
 
     // Start is called before the first frame update
     void Start()
     {
         powerOn = false;
-        //channelText = GameObject.Find("PlayerController").GetComponent<RadioManager>();
+        
     }
 
     // Update is called once per frame
@@ -30,7 +31,7 @@ public class RadioManager : MonoBehaviour
 
         if(powerOn == true)
         {
-            PlayChannel();
+            PlayChannel(currentChannelIndex);
         }
     }
 
@@ -61,7 +62,7 @@ public class RadioManager : MonoBehaviour
 
     private void UpdateChannelName()
     {
-        channelText.text = "Channel: " + currentChannelIndex; // Update the channel name text.
+        radioChannelSlider.channelNameText.text = "Channel: " + currentChannelIndex; // Update the channel name text.
     }
 }
 

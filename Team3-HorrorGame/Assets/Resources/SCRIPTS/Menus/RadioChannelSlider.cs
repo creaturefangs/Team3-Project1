@@ -8,7 +8,7 @@ public class RadioChannelSlider : MonoBehaviour
 {
     public TMP_Text channelNameText;
     public string[] channelNames;
-
+    public RadioManager radioManager;
     private Slider slider;
     
 
@@ -25,5 +25,8 @@ public class RadioChannelSlider : MonoBehaviour
         channelNameText.text = channelNames[index];
         // Here, you can implement logic to actually change the radio channel.
         // You may use events or a radio manager script for this purpose.
+        radioManager.PlayChannel(index); // Call the PlayChannel method of the RadioManager.
     }
+
 }
+
