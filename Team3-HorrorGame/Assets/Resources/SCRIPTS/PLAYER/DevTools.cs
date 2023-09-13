@@ -8,10 +8,12 @@ public class DevTools : MonoBehaviour
     public bool devToolsEnabled = true;
     public bool godMode = false;
 
+    private Visibility visibility;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        visibility = GameObject.Find("VisibilityUI").GetComponent<Visibility>();
     }
 
     // Update is called once per frame
@@ -20,7 +22,11 @@ public class DevTools : MonoBehaviour
         if (devToolsEnabled)
         {
             // Makes the player have infinite visibility and sprint when toggled.
-            if (Input.GetKeyDown(KeyCode.Keypad0)) { godMode = !godMode; }
+            if (Input.GetKeyDown(KeyCode.Keypad0))
+            {
+                godMode = !godMode;
+                visibility.visibility = 0; visibility.VisibilityStatus(); visibility.UpdateOverlay();
+            }
 
             if (Input.GetKeyDown(KeyCode.Keypad1)) { SceneManager.LoadScene("LEVELONE"); }
             if (Input.GetKeyDown(KeyCode.Keypad2)) { SceneManager.LoadScene("LEVELTWO"); }

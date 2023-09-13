@@ -88,7 +88,7 @@ public class Visibility : MonoBehaviour
         else if (godMode) { visIcon.color = Color.green; }
     }
 
-    void VisibilityStatus() // Effects that take place based on the level of the player's visibility.
+    public void VisibilityStatus() // Effects that take place based on the level of the player's visibility.
     {
         // Handle if statements in descending order since otherwise it would stick to the first "if" statement (since it's the lowest and wouldn't check the other else-if statements).
         if (visibility >= maxVisibility)
@@ -130,7 +130,7 @@ public class Visibility : MonoBehaviour
     private IEnumerator GainVisibility()
     {
         visChange = true;
-        while (playerVisible && visibility < maxVisibility)
+        while (!godMode && playerVisible && visibility < maxVisibility)
         {
             visibility += lightVisGain * Time.deltaTime + (lightVisGain * Time.deltaTime * enemyMod * enemyNearby); // Regular vis gain will be multiplied by the enemyMod if the enemy is nearby.
             UpdateOverlay();
@@ -154,7 +154,7 @@ public class Visibility : MonoBehaviour
     private IEnumerator WalkVisibility()
     {
         walkNoise = true;
-        while (!crouching && walking && visibility < maxVisibility)
+        while (!godMode && !crouching && walking && visibility < maxVisibility)
         {
             visibility += walkVisGain * Time.deltaTime + (walkVisGain * Time.deltaTime * enemyMod * enemyNearby); // Regular vis gain will be multiplied by the enemyMod if the enemy is nearby.
             UpdateOverlay();
@@ -166,7 +166,7 @@ public class Visibility : MonoBehaviour
     private IEnumerator SprintVisibility()
     {
         sprintNoise = true;
-        while (walking && sprinting && visibility < maxVisibility)
+        while (!godMode && walking && sprinting && visibility < maxVisibility)
         {
             visibility += sprintVisGain * Time.deltaTime + (sprintVisGain * Time.deltaTime * enemyMod * enemyNearby); // Regular vis gain will be multiplied by the enemyMod if the enemy is nearby.
             UpdateOverlay();

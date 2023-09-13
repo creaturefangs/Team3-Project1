@@ -75,10 +75,10 @@ public class BasicEnemyAI : MonoBehaviour
                 Patrol();
                 break;
             case AIState.Stalk:
-                if (!stalking) { Stalk(); }
+                if (!stalking && !devTools.godMode) { Stalk(); }
                 break;
             case AIState.Chase:
-                if (!chase) { StartCoroutine(Chase()); }
+                if (!chase && !devTools.godMode) { StartCoroutine(Chase()); }
                 break;
         }
         CheckIfStaring();

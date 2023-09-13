@@ -804,7 +804,7 @@ PrefabInstance:
     - target: {fileID: 5964254660971460371, guid: cdf4eefa65b94c54c87f3f65b5b93b38, type: 3}
       propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[7].m_Target
       value: 
-      objectReference: {fileID: 2017724638}
+      objectReference: {fileID: 0}
     - target: {fileID: 6764222101106340199, guid: cdf4eefa65b94c54c87f3f65b5b93b38, type: 3}
       propertyPath: m_LocalPosition.x
       value: 497.452
@@ -3083,6 +3083,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 643127429}
     m_Modifications:
+    - target: {fileID: 926187764952086143, guid: 1fc4e39f865350a4f9275ab85ec55b3c, type: 3}
+      propertyPath: noteNum
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 2592684387168134952, guid: 1fc4e39f865350a4f9275ab85ec55b3c, type: 3}
       propertyPath: m_Name
       value: Note
@@ -4790,6 +4794,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 643127429}
     m_Modifications:
+    - target: {fileID: 926187764952086143, guid: 1fc4e39f865350a4f9275ab85ec55b3c, type: 3}
+      propertyPath: noteNum
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 2592684387168134952, guid: 1fc4e39f865350a4f9275ab85ec55b3c, type: 3}
       propertyPath: m_Name
       value: 'Note '
@@ -5282,11 +5290,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 23a060e1bf9158541a31375c6cfe52db, type: 3}
---- !u!1 &2017724638 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4183096381559229690, guid: 83cebed10f36a714daa48b6b8501434e, type: 3}
-  m_PrefabInstance: {fileID: 170248588}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2027684186 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8396409855953152435, guid: f8599f9ada89004489313b2725383ec3, type: 3}
@@ -5405,7 +5408,7 @@ PrefabInstance:
     - target: {fileID: 5624315471183693521, guid: f05717ffda430ee479de5788c1c86d57, type: 3}
       propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[6].m_Target
       value: 
-      objectReference: {fileID: 2017724638}
+      objectReference: {fileID: 0}
     - target: {fileID: 6714919975134460658, guid: f05717ffda430ee479de5788c1c86d57, type: 3}
       propertyPath: m_LocalPosition.x
       value: 626.38
