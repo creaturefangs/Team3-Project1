@@ -22,7 +22,8 @@ public class Visibility : MonoBehaviour
     [Header("Visibility Parameters")]
     // Vis gain and loss numbers do NOT add/subtract directly to visibility and end up multiplying w/time mod before being factored in.
     [Range(0, 10)] public float lightVisGain = 1.0f; // How much visibility is gained from light sources.
-    [Range(0, 10)] public float noiseVisGain = 2.0f; // How much visibility is gained from making noise (like sprinting).
+    [Range(0, 10)] public float walkVisGain = 0.5f; // How much visibility is gained from making noise via walking.
+    [Range(0, 10)] public float sprintVisGain = 2.0f; // How much visibility is gained from making noise via sprinting.
     [Range(0, 10)] public float visLoss = 3.0f; // How much to subtract from visibility on each interval.
     [Range(0, 50)] public int maxVisibility = 25; // The maximum amount of visibility a player can have before game over.
     [Header("Visibility Thresholds")]
@@ -32,14 +33,17 @@ public class Visibility : MonoBehaviour
 
     private bool playerVisible = false;
     private int currentItem; // The current item the player is holding (as int/index).
-    private bool isSprinting;
+    private bool sprinting = false;
+    private bool walking = false;
+    private bool crouching = false;
     [HideInInspector] public bool visChange = false;
-    private bool sprintMod = false;
+    private bool sprintNoise = false;
+    private bool walkNoise = false;
 
     private bool godMode = false;
     private GameObject enemy;
     public float enemyMod = 2; // How much to multiply visibility gain by if the player is nearby the enemy.
-    private int enemyNearby = 0; // C# is evil and true/false aren't treated as 1/0 like in other languages, so we're just gonna use an int in place of a bool.
+    public int enemyNearby = 0; // C# is evil and true/false aren't treated as 1/0 like in other languages, so we're just gonna use an int in place of a bool.
 
     // Start is called before the first frame update
     void Start()
@@ -66,15 +70,19 @@ public class Visibility : MonoBehaviour
             CheckEnemyDistance();
             VisibilityStatus();
 
-            isSprinting = staminaScript.weAreSprinting;
-            if (isSprinting && !sprintMod) { StartCoroutine(SprintVisibility()); } // If player is sprinting and sprint is not already being applied to visibility...
+            sprinting = staminaScript.weAreSprinting;
+            walking = playerObject.GetComponent<PlayerController>().Moving;
+            crouching = playerObject.GetComponent<PlayerController>().isCrough;
+
+            if (sprinting && !sprintNoise) { StartCoroutine(SprintVisibility()); } // If player is sprinting and sprint is not already being applied to visibility...
 
             currentItem = itemScript.ItemIdInt;
             if (LightOn() || currentItem == 4) { playerVisible = true; } // Player gets increasing visibility if holding turned on flashlight/lantern.
             else { playerVisible = false; }
 
+            if (walking && !sprinting && !walkNoise && !crouching) { StartCoroutine(WalkVisibility()); }
             if (playerVisible && !visChange) { StartCoroutine(GainVisibility()); }
-            if (!playerVisible && !visChange) { StartCoroutine(LoseVisibility()); }
+            if (!playerVisible && !visChange && !sprintNoise && !walkNoise) { StartCoroutine(LoseVisibility()); }
         }
 
         else if (godMode) { visIcon.color = Color.green; }
@@ -134,7 +142,7 @@ public class Visibility : MonoBehaviour
     private IEnumerator LoseVisibility()
     {
         visChange = true;
-        while (!playerVisible && !isSprinting && visibility > 0)
+        while (!playerVisible && !sprinting && visibility > 0)
         {
             visibility -= visLoss * Time.deltaTime;
             UpdateOverlay();
@@ -143,16 +151,28 @@ public class Visibility : MonoBehaviour
         visChange = false;
     }
 
-    private IEnumerator SprintVisibility()
+    private IEnumerator WalkVisibility()
     {
-        sprintMod = true;
-        while (isSprinting && visibility < maxVisibility)
+        walkNoise = true;
+        while (!crouching && walking && visibility < maxVisibility)
         {
-            visibility += noiseVisGain * Time.deltaTime + (noiseVisGain * Time.deltaTime * enemyMod * enemyNearby); // Regular vis gain will be multiplied by the enemyMod if the enemy is nearby.
+            visibility += walkVisGain * Time.deltaTime + (walkVisGain * Time.deltaTime * enemyMod * enemyNearby); // Regular vis gain will be multiplied by the enemyMod if the enemy is nearby.
             UpdateOverlay();
             yield return new WaitForSeconds(Time.deltaTime);
         }
-        sprintMod = false;
+        walkNoise = false;
+    }
+
+    private IEnumerator SprintVisibility()
+    {
+        sprintNoise = true;
+        while (walking && sprinting && visibility < maxVisibility)
+        {
+            visibility += sprintVisGain * Time.deltaTime + (sprintVisGain * Time.deltaTime * enemyMod * enemyNearby); // Regular vis gain will be multiplied by the enemyMod if the enemy is nearby.
+            UpdateOverlay();
+            yield return new WaitForSeconds(Time.deltaTime);
+        }
+        sprintNoise = false;
     }
 
     public void UpdateOverlay()

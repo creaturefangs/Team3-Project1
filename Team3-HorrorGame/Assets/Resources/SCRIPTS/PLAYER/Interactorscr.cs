@@ -14,11 +14,13 @@ public class Interactorscr : MonoBehaviour
     private AudioSource interactSFX;
 
     private NoteInteraction noteInteraction;
+    private PlayerHealth health;
 
     // Start is called before the first frame update
     void Start()
     {
         noteInteraction = GameObject.Find("NotesUI").GetComponent<NoteInteraction>();
+        health = GameObject.Find("PlayerController").GetComponent<PlayerHealth>();
     }
 
     // Update is called once per frame
@@ -54,6 +56,14 @@ public class Interactorscr : MonoBehaviour
                 else if (interactType == "pills")
                 {
                     interactSFX = GameObject.Find("pillsSFX").GetComponent<AudioSource>();
+                    health.RestoreHealth(50);
+
+                }
+                else if (interactType == "firstaid")
+                {
+                    interactSFX = GameObject.Find("pillsSFX").GetComponent<AudioSource>();
+                    health.RestoreHealth(100);
+
                 }
                 else if (interactType == "key")
                 {
@@ -63,6 +73,7 @@ public class Interactorscr : MonoBehaviour
                 {
                     interactSFX = GameObject.Find("radioSFX").GetComponent<AudioSource>();
                 }
+                if (interactType != "note") { Destroy(hit.collider.gameObject); }
                 if (interactSFX != null) { interactSFX.Play(); }
                 onInteract.Invoke();
                 Debug.Log("Player interacted with: " + interactObj.name);

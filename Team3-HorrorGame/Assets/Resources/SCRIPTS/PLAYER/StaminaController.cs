@@ -29,6 +29,7 @@ public class StaminaController : MonoBehaviour
     private bool changingDisplay = false; // Whether the stamina bar is currently transitioning between being shown/hidden.
     private bool regenerating = false;
     private bool draining = false;
+    private bool moving = false;
 
     private bool godMode = false;
 
@@ -46,6 +47,7 @@ public class StaminaController : MonoBehaviour
         if (!godMode)
         {
             weAreSprinting = playerController.isRunning;
+            moving = playerController.Moving;
             UpdateStamina();
 
             if (Input.GetKeyDown(KeyCode.Space) && playerStamina >= jumpCost && canSprint)
@@ -92,7 +94,7 @@ public class StaminaController : MonoBehaviour
     private IEnumerator DrainStamina()
     {
         draining = true;
-        while (playerStamina > 0 && weAreSprinting)
+        while (playerStamina > 0 && weAreSprinting && moving)
         {
             playerStamina -= staminaDrain * Time.deltaTime;
             yield return new WaitForSeconds(Time.deltaTime);

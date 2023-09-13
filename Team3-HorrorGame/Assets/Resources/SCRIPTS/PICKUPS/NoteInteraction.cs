@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 public class NoteInteraction : MonoBehaviour
 {
@@ -41,9 +42,7 @@ public class NoteInteraction : MonoBehaviour
         noteUI.SetActive(true);
 
         // Sets note text to first note in the array.
-        noteUI.transform.GetChild(0).GetComponent<TMP_Text>().text = notes[0];
-
-        notes = notes.Skip(1).ToArray(); // Removes the first (currently being read) note from notes array.
+        noteUI.transform.GetChild(0).GetComponent<TMP_Text>().text = notes[noteObj.GetComponent<Interactable>().noteNum - 1];
 
         // Deactivate the note object
         noteObj.SetActive(false);
@@ -77,7 +76,7 @@ public class NoteInteraction : MonoBehaviour
     void GetNoteList()
     {
         var text = noteDoc.text;
-        var contents = text.Split("[!]"); // Splits the string into an array of strings, splitting on [!] (the "new note" indicator).
+        var contents = Regex.Split(text, @"\[\d+]"); // Splits the string into an array of strings, splitting on [!] (the "new note" indicator).
         contents = contents.Skip(1).ToArray(); // Removes the random empty object that appears at the start of the array.
         for (int i = 0; i < (contents.Length); i++) { contents[i] = contents[i].Substring(2); } // Gets rid of the leftover newline at the start of notes.
         notes = contents;

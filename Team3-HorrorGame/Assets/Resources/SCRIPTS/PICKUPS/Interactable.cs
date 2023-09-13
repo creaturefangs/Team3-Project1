@@ -6,6 +6,7 @@ using UnityEngine.Events;
 public class Interactable : MonoBehaviour
 {
     public string interactType;
+    public int noteNum = 1;
     public UnityEvent onInteract;
 
     // Start is called before the first frame update

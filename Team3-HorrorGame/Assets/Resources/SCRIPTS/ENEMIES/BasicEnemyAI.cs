@@ -21,10 +21,10 @@ public class BasicEnemyAI : MonoBehaviour
     private AudioSource chaseMusic;
 
     private GameObject blinkOverlay;
-    public bool chase = false;
-    public bool staring = false;
+    [HideInInspector] public bool chase = false;
+    private bool staring = false;
     private bool stalking = false;
-    public bool contest = false;
+    private bool contest = false;
     private bool disappearing = false;
     private bool damageRange = false;
     private Vector3 idlePos;
@@ -210,7 +210,7 @@ public class BasicEnemyAI : MonoBehaviour
     {
         LayerMask mask = ~LayerMask.GetMask("UI");
         RaycastHit hit;
-        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, 75, mask))
+        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, 100, mask))
         {
             if (hit.collider.gameObject == gameObject) { staring = true; }
             else { staring = false; }

@@ -9,8 +9,6 @@ public class PlayerHealth : MonoBehaviour
     public float maxHealth = 100;
     public float currentHealth;
     public GameObject healthUI;
-    public GameObject pickupHealthkit;
-    public GameObject pickupPills;
     private int damageAmount = 25; // player takes 25 damage each time
 
     // Start is called before the first frame update

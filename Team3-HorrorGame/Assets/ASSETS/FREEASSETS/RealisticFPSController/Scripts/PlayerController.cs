@@ -47,7 +47,7 @@ namespace EvolveGames
 
         [HideInInspector] public CharacterController characterController;
         [HideInInspector] public Vector3 moveDirection = Vector3.zero;
-        bool isCrough = false;
+        public bool isCrough = false;
         float InstallCroughHeight;
         float rotationX = 0;
         [HideInInspector] public bool isRunning = false;
@@ -105,12 +105,12 @@ namespace EvolveGames
             }
             Vector3 forward = transform.TransformDirection(Vector3.forward);
             Vector3 right = transform.TransformDirection(Vector3.right);
-            if (canSprint)
+            if (canSprint || !isCrough)
             {
                 isRunning = !isCrough ? CanRunning ? Input.GetKey(KeyCode.LeftShift) : false : false; // If player holds Left Shift, player is running.
                 WalkingValue = walkingSpeed; // Sets walking speed to its normal value.
             }
-            if (!canSprint)
+            if (!canSprint || isCrough)
             {
                 WalkingValue = drainedSpeed; // Sets walking speed to a halved value for when the player uses up their sprint.
                 isRunning = false;
