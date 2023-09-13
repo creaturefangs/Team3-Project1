@@ -15,12 +15,14 @@ public class Interactorscr : MonoBehaviour
 
     private NoteInteraction noteInteraction;
     private PlayerHealth health;
+    private RadioManager powerOn;
 
     // Start is called before the first frame update
     void Start()
     {
         noteInteraction = GameObject.Find("NotesUI").GetComponent<NoteInteraction>();
         health = GameObject.Find("PlayerController").GetComponent<PlayerHealth>();
+        powerOn = GameObject.Find("PlayerController").GetComponent<RadioManager>();
     }
 
     // Update is called once per frame
@@ -72,6 +74,16 @@ public class Interactorscr : MonoBehaviour
                 else if (interactType == "radio")
                 {
                     interactSFX = GameObject.Find("radioSFX").GetComponent<AudioSource>();
+                }
+                else if (interactType == "beartrap")
+                {
+                    //interactSFX = GameObject.Find("beartrapSFX").GetComponent<AudioSource>();
+                }
+                else if (interactType == "powerswitch")
+                {
+                    //interactSFX = GameObject.Find("beartrapSFX").GetComponent<AudioSource>();
+                    //turns power on in level one 
+                    powerOn.powerOn = true;
                 }
                 if (interactType != "note") { Destroy(hit.collider.gameObject); }
                 if (interactSFX != null) { interactSFX.Play(); }

@@ -6,7 +6,7 @@ public class RadioManager : MonoBehaviour
 {
     bool sliderActive;
     public GameObject radioUI;
-    bool powerOn; 
+    public bool powerOn; 
 
     // Start is called before the first frame update
     void Start()
