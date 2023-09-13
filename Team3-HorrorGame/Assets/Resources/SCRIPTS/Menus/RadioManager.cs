@@ -61,7 +61,7 @@ public class RadioManager : MonoBehaviour
 
     private void UpdateChannelName()
     {
-        channelNameText.text = "Channel: " + currentChannelIndex; // Update the channel name text.
+        channelText.text = "Channel: " + currentChannelIndex; // Update the channel name text.
     }
 }
-}
+

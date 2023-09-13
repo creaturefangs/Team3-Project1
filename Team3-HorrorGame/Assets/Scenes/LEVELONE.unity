@@ -5800,10 +5800,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1914715544498952831, guid: d8ea5dfc99e8f5341bd04a993472b0c8, type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: fdd36860d16b45640bf7270bb96eb829, type: 3}
+    - target: {fileID: 1642654083864744725, guid: d8ea5dfc99e8f5341bd04a993472b0c8, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1934999732887366614, guid: d8ea5dfc99e8f5341bd04a993472b0c8, type: 3}
       propertyPath: m_Name
       value: InteractSFX
@@ -5846,6 +5846,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2854678088740553719, guid: d8ea5dfc99e8f5341bd04a993472b0c8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2942962798269310978, guid: d8ea5dfc99e8f5341bd04a993472b0c8, type: 3}
+      propertyPath: m_PlayOnAwake
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -6879,7 +6883,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8709166756501119535, guid: 42363814c5d87f346a11f601efab6ba3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 535.7207
+      value: 534.79
       objectReference: {fileID: 0}
     - target: {fileID: 8709166756501119535, guid: 42363814c5d87f346a11f601efab6ba3, type: 3}
       propertyPath: m_LocalRotation.w
