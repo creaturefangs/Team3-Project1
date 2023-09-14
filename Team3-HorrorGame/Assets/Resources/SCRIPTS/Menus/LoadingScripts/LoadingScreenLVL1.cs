@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
 
-public class LoadingScreen : MonoBehaviour
+public class LoadingScreenLVL1 : MonoBehaviour
 {
     public Slider loadingBar;
     public TextMeshProUGUI progressText;
@@ -17,7 +17,7 @@ public class LoadingScreen : MonoBehaviour
 
     IEnumerator LoadAsyncScene()
     {
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("IntroCutscene");
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("LevelOne");
         asyncLoad.allowSceneActivation = false;
         while (!asyncLoad.isDone)
         {

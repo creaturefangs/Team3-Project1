@@ -5,15 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class UIButtons : MonoBehaviour
 {
-    public void OnPlayLevel1Click()
-    {
-        SceneManager.LoadScene("LevelOne");
-    }
-
     public void OnQuitButtonClick()
     {
         Application.Quit();
-        Debug.Log("It Works");
     }
 
     public void OnHelpButtonClick()
@@ -39,5 +33,10 @@ public class UIButtons : MonoBehaviour
     public void OnClickCutsceneOne()
     {
         SceneManager.LoadScene("INTROCUTSCENE");
+    }
+
+    public void OnClickLoadScreen()
+    {
+        SceneManager.LoadScene("LoadingSreen");
     }
 }

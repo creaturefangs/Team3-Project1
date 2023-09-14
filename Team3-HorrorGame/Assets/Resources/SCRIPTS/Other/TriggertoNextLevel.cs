@@ -8,7 +8,7 @@ public class TriggertoNextLevel : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        SceneManager.LoadScene("LEVELTWO");
+        SceneManager.LoadScene("LoadingScreenLVL2");
 
     }
 }
