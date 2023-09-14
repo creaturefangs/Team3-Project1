@@ -14,7 +14,6 @@ public class RadioChannelSlider : MonoBehaviour
 
     private void Start()
     {
-      
         slider = GetComponent<Slider>();
         slider.onValueChanged.AddListener(ChangeChannel);
     }

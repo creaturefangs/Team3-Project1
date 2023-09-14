@@ -26,11 +26,12 @@ public class RadioManager : MonoBehaviour
     {
         if (powerOn == false)
         {
-
+            // if the radio tower is without power, the static plays.
         }
 
         if(powerOn == true)
         {
+            // if the radio tower has been given power, the audio plays
             PlayChannel(currentChannelIndex);
         }
     }
@@ -51,6 +52,7 @@ public class RadioManager : MonoBehaviour
 
     public void PlayChannel(int channelIndex)
     {
+        //plays audio clip when channel is changed
         if (channelIndex >= 0 && channelIndex < channelClips.Length)
         {
             currentChannelIndex = channelIndex;
@@ -62,7 +64,13 @@ public class RadioManager : MonoBehaviour
 
     private void UpdateChannelName()
     {
+        //finds channel name and converts it into text
         radioChannelSlider.channelNameText.text = "Channel: " + currentChannelIndex; // Update the channel name text.
+    }
+
+    public void SetPowerOn()
+    {
+        powerOn = true;
     }
 }
 

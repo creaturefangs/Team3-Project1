@@ -81,6 +81,7 @@ public class Interactorscr : MonoBehaviour
                     //turns power on in level one 
                     powerOn.powerOn = true;
                 }
+                if (interactType != "radio") { Destroy(hit.collider.gameObject); }
                 if (interactType != "note") { Destroy(hit.collider.gameObject); }
                 if (interactSFX != null) { interactSFX.Play(); }
                 onInteract.Invoke();

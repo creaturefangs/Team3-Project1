@@ -7244,9 +7244,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 7180070352822864955}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 8
-  m_WholeNumbers: 1
-  m_Value: 5
+  m_MaxValue: 1
+  m_WholeNumbers: 0
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -7276,10 +7276,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   channelNameText: {fileID: 3685530775157936353}
   channelNames:
-  - 89
-  - 92
+  - 89.1
+  - 92.6
   - 100
-  - 104
+  - 104.9
   - 108
   radioManager: {fileID: 0}
 --- !u!1 &8374843226933034497

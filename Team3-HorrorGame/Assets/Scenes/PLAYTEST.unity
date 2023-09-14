@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 0.57
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.66920316, g: 0.60453427, b: 0.5066476, a: 0.57}
+  m_IndirectSpecularColor: {r: 0.66925186, g: 0.6045367, b: 0.50670403, a: 0.57}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -788,11 +788,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1918705304092518361, guid: e81b2676ba3146e42a198cadebff0c58, type: 3}
   m_PrefabInstance: {fileID: 3926698133807521418}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1553956521 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4183096381559229690, guid: 83cebed10f36a714daa48b6b8501434e, type: 3}
-  m_PrefabInstance: {fileID: 4277833148102853740}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1572592107 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7911673306070364950, guid: 83cebed10f36a714daa48b6b8501434e, type: 3}
@@ -859,7 +854,7 @@ PrefabInstance:
     - target: {fileID: 5964254660971460371, guid: cdf4eefa65b94c54c87f3f65b5b93b38, type: 3}
       propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[5].m_Target
       value: 
-      objectReference: {fileID: 1553956521}
+      objectReference: {fileID: 0}
     - target: {fileID: 5964254660971460371, guid: cdf4eefa65b94c54c87f3f65b5b93b38, type: 3}
       propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[6].m_Target
       value: 
@@ -1219,7 +1214,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3386290361589338938, guid: c2d77153e38919642b1582305fe7b599, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 117.892
+      value: 120.35
       objectReference: {fileID: 0}
     - target: {fileID: 3386290361589338938, guid: c2d77153e38919642b1582305fe7b599, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1716,7 +1711,7 @@ PrefabInstance:
     - target: {fileID: 5624315471183693521, guid: f05717ffda430ee479de5788c1c86d57, type: 3}
       propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[7].m_Target
       value: 
-      objectReference: {fileID: 1553956521}
+      objectReference: {fileID: 0}
     - target: {fileID: 5624315471183693521, guid: f05717ffda430ee479de5788c1c86d57, type: 3}
       propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[8].m_Target
       value: 

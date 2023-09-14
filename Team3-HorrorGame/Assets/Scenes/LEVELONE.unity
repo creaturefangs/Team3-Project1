@@ -16,10 +16,10 @@ RenderSettings:
   serializedVersion: 9
   m_Fog: 1
   m_FogColor: {r: 0.06666667, g: 0.06840208, b: 0.07450981, a: 1}
-  m_FogMode: 2
+  m_FogMode: 1
   m_FogDensity: 0.02
   m_LinearFogStart: 9.53
-  m_LinearFogEnd: 425
+  m_LinearFogEnd: 400
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
@@ -334,7 +334,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4560295352042561985, guid: 83cebed10f36a714daa48b6b8501434e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 532.7
+      value: 529.27
       objectReference: {fileID: 0}
     - target: {fileID: 4560295352042561985, guid: 83cebed10f36a714daa48b6b8501434e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -364,38 +364,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5492411135845343112, guid: 83cebed10f36a714daa48b6b8501434e, type: 3}
-      propertyPath: m_Value
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5492411135845343112, guid: 83cebed10f36a714daa48b6b8501434e, type: 3}
-      propertyPath: m_MaxValue
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5492411135845343112, guid: 83cebed10f36a714daa48b6b8501434e, type: 3}
-      propertyPath: m_WholeNumbers
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7170336603436504733, guid: 83cebed10f36a714daa48b6b8501434e, type: 3}
-      propertyPath: channelNames.Array.data[0]
-      value: 89.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7170336603436504733, guid: 83cebed10f36a714daa48b6b8501434e, type: 3}
-      propertyPath: channelNames.Array.data[1]
-      value: 92.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 7170336603436504733, guid: 83cebed10f36a714daa48b6b8501434e, type: 3}
-      propertyPath: channelNames.Array.data[2]
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 7170336603436504733, guid: 83cebed10f36a714daa48b6b8501434e, type: 3}
-      propertyPath: channelNames.Array.data[3]
-      value: 104.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 7170336603436504733, guid: 83cebed10f36a714daa48b6b8501434e, type: 3}
-      propertyPath: channelNames.Array.data[4]
-      value: 108
-      objectReference: {fileID: 0}
+      propertyPath: radioManager
+      value: 
+      objectReference: {fileID: 331095280}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -824,6 +796,17 @@ Transform:
   - {fileID: 290669798}
   m_Father: {fileID: 971091459}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &331095280 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6879804437828525047, guid: 0e1852078f04651498b6a8a7982b32b7, type: 3}
+  m_PrefabInstance: {fileID: 1647746742}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02dedadbb5213a0439eca135fda5046b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &331336492
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3484,7 +3467,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1107731705
 Transform:
@@ -3495,7 +3478,7 @@ Transform:
   m_GameObject: {fileID: 1107731704}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.2, y: 179.4, z: 12.6}
+  m_LocalPosition: {x: 12.71, y: 178.17, z: 12.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3513,8 +3496,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0, b: 0, a: 1}
-  m_Intensity: 45.9
-  m_Range: 19.71
+  m_Intensity: 50
+  m_Range: 36.6
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -3546,16 +3529,16 @@ Light:
     m_UseCullingMatrixOverride: 0
   m_Cookie: {fileID: 0}
   m_DrawHalo: 1
-  m_Flare: {fileID: 12100000, guid: b5a6cf5f31f1943c587519cdea1e27dc, type: 2}
-  m_RenderMode: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 1
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1
+  m_BounceIntensity: 0
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
@@ -3644,7 +3627,7 @@ Transform:
   m_GameObject: {fileID: 1118332718}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 76.4, y: 4.496072, z: 589.6}
+  m_LocalPosition: {x: 158, y: 4.496072, z: 589.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4134,7 +4117,31 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: PanelDoorOpen
+          m_StringArgument: PanelDoorOpenanim
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1209434148}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: electricalpanelSwitchanim
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 331095280}
+        m_TargetAssemblyTypeName: RadioManager, Assembly-CSharp
+        m_MethodName: SetPowerOn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: electricalpanelSwitchanim
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1001 &1229676955
@@ -5310,6 +5317,17 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1050774208}
   m_SourcePrefab: {fileID: 100100000, guid: ae6a6d98d5bd2f7408e83e3d30427c26, type: 3}
+--- !u!114 &1642923860 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7170336603436504733, guid: 83cebed10f36a714daa48b6b8501434e, type: 3}
+  m_PrefabInstance: {fileID: 170248588}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f7face37c75a064daa5c863b2029a1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1647746742
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5326,6 +5344,10 @@ PrefabInstance:
       propertyPath: radioUI
       value: 
       objectReference: {fileID: 492384919}
+    - target: {fileID: 6879804437828525047, guid: 0e1852078f04651498b6a8a7982b32b7, type: 3}
+      propertyPath: radioChannelSlider
+      value: 
+      objectReference: {fileID: 1642923860}
     - target: {fileID: 8695538335918955444, guid: 0e1852078f04651498b6a8a7982b32b7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 917.7648
