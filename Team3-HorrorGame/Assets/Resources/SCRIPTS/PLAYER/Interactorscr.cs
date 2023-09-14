@@ -75,10 +75,6 @@ public class Interactorscr : MonoBehaviour
                 {
                     interactSFX = GameObject.Find("radioSFX").GetComponent<AudioSource>();
                 }
-                else if (interactType == "beartrap")
-                {
-                    interactSFX = GameObject.Find("beartrapSFX").GetComponent<AudioSource>();
-                }
                 else if (interactType == "powerswitch")
                 {
                     interactSFX = GameObject.Find("powerswitchSFX").GetComponent<AudioSource>();

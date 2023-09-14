@@ -55,9 +55,12 @@ public class PlayerHealth : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
-            // Damage the player when colliding with an enemy.
-            //TakeDamage(damageAmount);
-            //Debug.Log("Player has been attacked.");
+            if (other.gameObject.name == "BearTrap")
+            {
+                TakeDamage(25);
+                other.gameObject.GetComponent<Animator>().Play("beartrapclose");
+                GameObject.Find("beartrapSFX").GetComponent<AudioSource>().Play();
+            }
         }
     }
 
