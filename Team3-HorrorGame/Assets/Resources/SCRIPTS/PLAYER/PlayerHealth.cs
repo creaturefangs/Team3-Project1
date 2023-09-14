@@ -60,6 +60,7 @@ public class PlayerHealth : MonoBehaviour
                 TakeDamage(25);
                 other.gameObject.GetComponent<Animator>().Play("beartrapclose");
                 GameObject.Find("beartrapSFX").GetComponent<AudioSource>().Play();
+                other.gameObject.tag = "Untagged";
             }
         }
     }
