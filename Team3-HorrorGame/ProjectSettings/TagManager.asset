@@ -8,6 +8,7 @@ TagManager:
   - Pickup
   - Music
   - Enemy
+  - powerswitch
   layers:
   - Default
   - TransparentFX

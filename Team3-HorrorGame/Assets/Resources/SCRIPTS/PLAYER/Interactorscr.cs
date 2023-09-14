@@ -75,13 +75,22 @@ public class Interactorscr : MonoBehaviour
                 {
                     interactSFX = GameObject.Find("radioSFX").GetComponent<AudioSource>();
                 }
+                else if (interactType == "powerbox")
+                {
+                   //interactSFX = GameObject.Find("powerboxSFx").GetComponent<AudioSource>();
+                   
+                }
                 else if (interactType == "powerswitch")
                 {
-                    interactSFX = GameObject.Find("powerswitchSFX").GetComponent<AudioSource>();
+                    //interactSFX = GameObject.Find("powerswitchSFX").GetComponent<AudioSource>();
                     //turns power on in level one 
-                    powerOn.powerOn = true;
+                    //powerOn.powerOn = true;
                 }
-                if (interactType != "radio" && interactType != "note") { Debug.Log("KILL");  Destroy(hit.collider.gameObject); }
+                else if (interactType == "lightgenerator")
+                {
+                     interactSFX = GameObject.Find("lightgeneratorSFX").GetComponent<AudioSource>();
+                }
+                if (interactType != "radio" && interactType != "note" && interactType != "powerbox" && interactType != "powerswitch" && interactType != "lightgenerator") { Debug.Log("KILL");  Destroy(hit.collider.gameObject); }
                 if (interactSFX != null) { interactSFX.Play(); }
                 onInteract.Invoke();
                 Debug.Log("Player interacted with: " + interactObj.name);

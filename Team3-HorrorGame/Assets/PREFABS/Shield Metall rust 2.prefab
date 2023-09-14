@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1394606933213040089}
   - component: {fileID: 5986718756421303355}
   - component: {fileID: 3360375506791464913}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Switch014
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 9138821615459270232}
   - component: {fileID: 6981447955023760592}
   - component: {fileID: 1643342388691326976}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Knob002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 1964568179414821291}
   - component: {fileID: 2853282821114278618}
   - component: {fileID: 2589109601448755285}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: volt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -260,7 +260,7 @@ GameObject:
   - component: {fileID: 996621545922529670}
   - component: {fileID: 8488494341211483146}
   - component: {fileID: 442766507894683450}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Lamp 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -343,7 +343,7 @@ GameObject:
   - component: {fileID: 8939932789213795300}
   - component: {fileID: 2755254075006114788}
   - component: {fileID: 3902951840842981978}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Knob010
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -426,7 +426,7 @@ GameObject:
   - component: {fileID: 2517159696635954954}
   - component: {fileID: 3045596006702577323}
   - component: {fileID: 8346494167124541804}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Knob004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -509,7 +509,7 @@ GameObject:
   - component: {fileID: 147269510070790077}
   - component: {fileID: 880210500246824197}
   - component: {fileID: 1242176163898361697}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ArrowVolt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -591,7 +591,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4125933632443457109}
   - component: {fileID: 6325377174940791599}
-  m_Layer: 0
+  - component: {fileID: 7460528351821327175}
+  - component: {fileID: 2187745977071197449}
+  m_Layer: 8
   m_Name: Shield Metall rust 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -676,6 +678,68 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7460528351821327175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1087930608152734790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0c08372bdcafaf4d9aa1e1ac16ed5a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactType: powerbox
+  noteNum: 1
+  onInteract:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6325377174940791599}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: ElectricalPanelOpenanim
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2187745977071197449}
+        m_TargetAssemblyTypeName: UnityEngine.Collider, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: ElectricalPanelOpenanim
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!65 &2187745977071197449
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1087930608152734790}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.3264756, y: 0.8339102, z: 1.7133354}
+  m_Center: {x: -0.2674902, y: 0.06313578, z: 0.086786725}
 --- !u!1 &1465544489226619904
 GameObject:
   m_ObjectHideFlags: 0
@@ -687,7 +751,7 @@ GameObject:
   - component: {fileID: 5611957457249147823}
   - component: {fileID: 939516903424646384}
   - component: {fileID: 6930616402972334617}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Knob
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -770,7 +834,7 @@ GameObject:
   - component: {fileID: 5863918196397817197}
   - component: {fileID: 93966922919210609}
   - component: {fileID: 1620903540276298269}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Switch007
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -853,7 +917,7 @@ GameObject:
   - component: {fileID: 398356958993292382}
   - component: {fileID: 2900192587285846113}
   - component: {fileID: 5393511160300254270}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: lock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -936,7 +1000,7 @@ GameObject:
   - component: {fileID: 5138255779971525916}
   - component: {fileID: 2554269779605191305}
   - component: {fileID: 8345698912872886184}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Knob013
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1019,7 +1083,7 @@ GameObject:
   - component: {fileID: 6572160242161428424}
   - component: {fileID: 5758950196265908261}
   - component: {fileID: 1829651920382488724}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1102,7 +1166,7 @@ GameObject:
   - component: {fileID: 5573139296137060063}
   - component: {fileID: 3090235080274253802}
   - component: {fileID: 1189037167738019784}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sphere001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1186,7 +1250,7 @@ GameObject:
   - component: {fileID: 7374335686997266073}
   - component: {fileID: 4221891744910005544}
   - component: {fileID: 8424690577200420420}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Lamp 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1269,7 +1333,7 @@ GameObject:
   - component: {fileID: 97840602615110752}
   - component: {fileID: 8995711767151424702}
   - component: {fileID: 459531727074532602}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Knob014
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1352,7 +1416,7 @@ GameObject:
   - component: {fileID: 8557964899758562822}
   - component: {fileID: 7742254614147992849}
   - component: {fileID: 150015370541313692}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Switch011
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1435,7 +1499,7 @@ GameObject:
   - component: {fileID: 1889709005626280714}
   - component: {fileID: 6784857044843724614}
   - component: {fileID: 4653691314331126725}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Switch004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1518,7 +1582,7 @@ GameObject:
   - component: {fileID: 894870107980261466}
   - component: {fileID: 3010664235096422779}
   - component: {fileID: 3384930413056627696}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Switch009
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1601,7 +1665,7 @@ GameObject:
   - component: {fileID: 5085415281953199430}
   - component: {fileID: 3566236542427260613}
   - component: {fileID: 4028767478059302408}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Switch005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1684,7 +1748,7 @@ GameObject:
   - component: {fileID: 1472380393599672131}
   - component: {fileID: 5904414417007722051}
   - component: {fileID: 3876570551223319155}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Switch012
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1767,7 +1831,7 @@ GameObject:
   - component: {fileID: 944414559615675352}
   - component: {fileID: 452693370878919451}
   - component: {fileID: 1741961809606164899}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Knob012
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1850,7 +1914,7 @@ GameObject:
   - component: {fileID: 7781204710522044786}
   - component: {fileID: 4996998152152277954}
   - component: {fileID: 3085057131319929209}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Knob001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1933,7 +1997,7 @@ GameObject:
   - component: {fileID: 8890110314544007775}
   - component: {fileID: 2580235170765348364}
   - component: {fileID: 3689057714029707363}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Knob005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2016,7 +2080,7 @@ GameObject:
   - component: {fileID: 6973753940521750055}
   - component: {fileID: 6212299582992318961}
   - component: {fileID: 2326017090714763787}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Switch008
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2099,7 +2163,7 @@ GameObject:
   - component: {fileID: 5131613105032507834}
   - component: {fileID: 2177431141019758173}
   - component: {fileID: 7107181664924955469}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Knob009
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2182,7 +2246,7 @@ GameObject:
   - component: {fileID: 3667869278551531623}
   - component: {fileID: 2032431327053553054}
   - component: {fileID: 6470420595311263220}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Switch001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2265,7 +2329,7 @@ GameObject:
   - component: {fileID: 6416349755572313600}
   - component: {fileID: 6755064168537978167}
   - component: {fileID: 1619300437267275828}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Knob006
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2348,7 +2412,7 @@ GameObject:
   - component: {fileID: 4405715591926656933}
   - component: {fileID: 8681745400552611923}
   - component: {fileID: 8307430952212724191}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: v/a plate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2431,7 +2495,7 @@ GameObject:
   - component: {fileID: 6567529614180338797}
   - component: {fileID: 5495647170875913631}
   - component: {fileID: 836386337391842965}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Main Switch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2514,7 +2578,7 @@ GameObject:
   - component: {fileID: 1826313469184988904}
   - component: {fileID: 8266616780519677489}
   - component: {fileID: 5093126622253141902}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Knob011
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2597,7 +2661,7 @@ GameObject:
   - component: {fileID: 5722031086066672201}
   - component: {fileID: 779186098321035127}
   - component: {fileID: 7672404197986814335}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Box
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2680,7 +2744,7 @@ GameObject:
   - component: {fileID: 282723918833190281}
   - component: {fileID: 1186324095531580047}
   - component: {fileID: 6348079640653275408}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Switch002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2763,9 +2827,11 @@ GameObject:
   - component: {fileID: 4726574969519735953}
   - component: {fileID: 97014885991159655}
   - component: {fileID: 2496356409436304820}
-  m_Layer: 0
+  - component: {fileID: 1622154905264650176}
+  - component: {fileID: 66878932869869014}
+  m_Layer: 8
   m_Name: Main Knob
-  m_TagString: Untagged
+  m_TagString: powerswitch
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2778,14 +2844,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6759268833284243220}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.32604387, y: 0.000000044703484, z: -0.000000014901161, w: 0.9453547}
+  m_LocalRotation: {x: -0.7372774, y: 0, z: 0, w: 0.67559016}
   m_LocalPosition: {x: -0.51519686, y: 0.06496413, z: 0.22163136}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5573139296137060063}
   m_Father: {fileID: 4125933632443457109}
-  m_LocalEulerAnglesHint: {x: 38.058002, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -95, y: 0, z: 0}
 --- !u!33 &97014885991159655
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -2836,6 +2902,68 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &1622154905264650176
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6759268833284243220}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.2954786, y: 0.5449766, z: 0.30289897}
+  m_Center: {x: -0.00365512, y: 0.21049467, z: 0.08955492}
+--- !u!114 &66878932869869014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6759268833284243220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0c08372bdcafaf4d9aa1e1ac16ed5a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactType: powerswitch
+  noteNum: 1
+  onInteract:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6325377174940791599}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: electricalpanelSwitchanim
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: RadioManager, Assembly-CSharp
+        m_MethodName: SetPowerOn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: electricalpanelSwitchanim
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6847506545092349141
 GameObject:
   m_ObjectHideFlags: 0
@@ -2847,7 +2975,7 @@ GameObject:
   - component: {fileID: 7574319869409235180}
   - component: {fileID: 4632257244148856343}
   - component: {fileID: 7466839163238562331}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Knob003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2930,7 +3058,7 @@ GameObject:
   - component: {fileID: 7821181780637459605}
   - component: {fileID: 8247240192868944278}
   - component: {fileID: 769016919574074507}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cylinder004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3013,7 +3141,7 @@ GameObject:
   - component: {fileID: 1986629582915830089}
   - component: {fileID: 3110669689170675846}
   - component: {fileID: 8409616716638081989}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Switch006
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3096,7 +3224,7 @@ GameObject:
   - component: {fileID: 1283239519688650228}
   - component: {fileID: 5321198394504162322}
   - component: {fileID: 8339340201669985779}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Switch003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3179,7 +3307,7 @@ GameObject:
   - component: {fileID: 2144966601988267403}
   - component: {fileID: 8655894097220591169}
   - component: {fileID: 3741311828256560053}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Switch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3262,7 +3390,7 @@ GameObject:
   - component: {fileID: 5950029398275019645}
   - component: {fileID: 4671209910485126079}
   - component: {fileID: 533616068060595402}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Rings
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3345,7 +3473,7 @@ GameObject:
   - component: {fileID: 5479165900771271882}
   - component: {fileID: 8771569157481189524}
   - component: {fileID: 5669279355355635574}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Knob007
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3428,7 +3556,7 @@ GameObject:
   - component: {fileID: 6602854169499992237}
   - component: {fileID: 6240559568356963361}
   - component: {fileID: 8879596871243652371}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Knob008
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3511,7 +3639,7 @@ GameObject:
   - component: {fileID: 8615394339229873048}
   - component: {fileID: 7497148840617309536}
   - component: {fileID: 2393468355187045420}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Switch010
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3594,7 +3722,7 @@ GameObject:
   - component: {fileID: 151051178098043622}
   - component: {fileID: 6053934688957704212}
   - component: {fileID: 958430802043783763}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Plate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3677,7 +3805,7 @@ GameObject:
   - component: {fileID: 1003588838631092774}
   - component: {fileID: 8160414246873313877}
   - component: {fileID: 1858411409814858029}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3692,14 +3820,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9170639975719809265}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.42750093, y: 0.5632432, z: -0.4275009, w: 0.5632433}
+  m_LocalRotation: {x: -0.5, y: 0.5, z: 0.5, w: 0.5}
   m_LocalPosition: {x: 0.16169362, y: 0.3430816, z: 0.07213542}
   m_LocalScale: {x: 0.990418, y: 0.990418, z: 0.990418}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 398356958993292382}
   m_Father: {fileID: 4125933632443457109}
-  m_LocalEulerAnglesHint: {x: 74.397, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 90, z: 0}
 --- !u!33 &8160414246873313877
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -3761,7 +3889,7 @@ GameObject:
   - component: {fileID: 2676223565927524460}
   - component: {fileID: 8392634640194712760}
   - component: {fileID: 3241432820044337789}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Switch013
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -58,7 +58,7 @@ public class RadioManager : MonoBehaviour
             currentChannelIndex = channelIndex;
             radioAudioSource.clip = channelClips[currentChannelIndex];
             radioAudioSource.Play();
-            UpdateChannelName();
+            //UpdateChannelName();
         }
     }
 
@@ -72,5 +72,13 @@ public class RadioManager : MonoBehaviour
     {
         powerOn = true;
     }
+
+    public void CloseRadioUI()
+    {
+        radioUI.SetActive(false);
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+    }
+
 }
 

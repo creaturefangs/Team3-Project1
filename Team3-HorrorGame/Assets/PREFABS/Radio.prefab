@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0c08372bdcafaf4d9aa1e1ac16ed5a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactType: Radio
+  interactType: radio
   noteNum: 1
   onInteract:
     m_PersistentCalls:
@@ -203,8 +203,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.36731723, y: 0.27304697, z: 0.13620986}
-  m_Center: {x: 0.010741475, y: 0.014913245, z: -0.0103225075}
+  m_Size: {x: 0.42929772, y: 0.27304697, z: 0.20717394}
+  m_Center: {x: -0.0042948406, y: 0.014913248, z: 0.025159458}
 --- !u!1 &1155535814291446542
 GameObject:
   m_ObjectHideFlags: 0
