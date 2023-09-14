@@ -21,6 +21,9 @@ EditorBuildSettings:
     path: Assets/Scenes/INTROCUTSCENE.unity
     guid: 296339446fccb094382c623392de11b1
   - enabled: 1
+    path: Assets/Scenes/Loading Screens/LoadingScreenLVL1.unity
+    guid: c33329a429ed48c44b2b22fa7ec5b0e9
+  - enabled: 1
     path: Assets/Scenes/LEVELONE.unity
     guid: 4bb14e1ce4d559740a731e93f3aeceb4
   - enabled: 1
