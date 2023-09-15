@@ -54,15 +54,15 @@ MonoBehaviour:
   RainSoundMedium: {fileID: 8300000, guid: 3359e9d10af08ca46ae396298dbd1ed9, type: 3}
   RainSoundHeavy: {fileID: 8300000, guid: db1471092e49b7445bfbd374a17ea61a, type: 3}
   RainSoundAudioMixer: {fileID: 0}
-  RainIntensity: 0.031
+  RainIntensity: 0.6
   RainFallParticleSystem: {fileID: 6446868077041349294}
   RainExplosionParticleSystem: {fileID: 1038919165205493875}
   RainMistParticleSystem: {fileID: 8532957861191545905}
-  RainMistThreshold: 0.5
+  RainMistThreshold: 1
   WindSound: {fileID: 8300000, guid: f9826f595784348498b57bcf6b2c8b1f, type: 3}
-  WindSoundVolumeModifier: 0.5
+  WindSoundVolumeModifier: 0.21
   WindZone: {fileID: 7146394124189773017}
-  WindSpeedRange: {x: 50, y: 100, z: 500}
+  WindSpeedRange: {x: 1, y: 1.25, z: 1.5}
   WindChangeInterval: {x: 5, y: 30}
   EnableWind: 1
   RainHeight: 100
@@ -111,7 +111,7 @@ WindZone:
   m_Mode: 0
   m_Radius: 50
   m_WindMain: 1
-  m_WindTurbulence: 50
+  m_WindTurbulence: 0.75
   m_WindPulseMagnitude: 3
   m_WindPulseFrequency: 0.05
 --- !u!1 &4578768700036238020

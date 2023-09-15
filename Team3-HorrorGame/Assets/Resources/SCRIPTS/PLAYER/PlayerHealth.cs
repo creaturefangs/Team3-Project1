@@ -11,10 +11,15 @@ public class PlayerHealth : MonoBehaviour
     public GameObject healthUI;
     private int damageAmount = 25; // player takes 25 damage each time
 
+    private GameObject overlay;
+    private DevTools devtools;
+
     // Start is called before the first frame update
     void Start()
     {
         currentHealth = maxHealth;
+        overlay = GameObject.Find("BlinkOverlay");
+        devtools = GameObject.Find("PlayerController").GetComponent<DevTools>();
     }
 
     // Update is called once per frame
@@ -25,9 +30,11 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(int amount)
     {
-        //player takes damage
-        currentHealth -= amount;
-        if (currentHealth <= 0) { Die(); }
+        if (!devtools.godMode)
+        {
+            currentHealth -= amount;
+            if (currentHealth <= 0) { Die(); }
+        }
     }
 
     void UpdateDamage()
@@ -42,6 +49,7 @@ public class PlayerHealth : MonoBehaviour
         currentHealth += amount;
         // Ensure the current health doesn't exceed the maximum health.
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+        overlay.GetComponent<Animator>().Play("HealOverlay");
     }
 
     void Die()

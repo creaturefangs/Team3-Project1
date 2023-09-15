@@ -13,7 +13,6 @@ public class Visibility : MonoBehaviour
     private Animator iconAnimator;
     private Image visIcon;
     private Image visOverlay;
-    private ItemChange itemScript;
     private StaminaController staminaScript;
     private DevTools devTools;
 
@@ -32,7 +31,6 @@ public class Visibility : MonoBehaviour
     public int visDanger = 20;
 
     private bool playerVisible = false;
-    private int currentItem; // The current item the player is holding (as int/index).
     private bool sprinting = false;
     private bool walking = false;
     private bool crouching = false;
@@ -48,7 +46,6 @@ public class Visibility : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        itemScript = playerObject.GetComponent<ItemChange>();
         staminaScript = playerObject.GetComponent<StaminaController>();
         devTools = playerObject.GetComponent<DevTools>();
 
@@ -76,8 +73,7 @@ public class Visibility : MonoBehaviour
 
             if (sprinting && !sprintNoise) { StartCoroutine(SprintVisibility()); } // If player is sprinting and sprint is not already being applied to visibility...
 
-            currentItem = itemScript.ItemIdInt;
-            if (LightOn() || currentItem == 4) { playerVisible = true; } // Player gets increasing visibility if holding turned on flashlight/lantern.
+            if (LightOn()) { playerVisible = true; } // Player gets increasing visibility if holding turned on flashlight/lantern.
             else { playerVisible = false; }
 
             if (walking && !sprinting && !walkNoise && !crouching) { StartCoroutine(WalkVisibility()); }
@@ -191,7 +187,7 @@ public class Visibility : MonoBehaviour
 
     bool LightOn()
     {
-        GameObject flashlight = GameObject.Find("Flashlight");
+        GameObject flashlight = GameObject.Find("HeldFlashlight");
         if (flashlight)
         {
             GameObject light = flashlight.transform.GetChild(0).gameObject;

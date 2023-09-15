@@ -40,18 +40,15 @@ namespace EvolveGames
             if (Input.GetKeyDown(KeyCode.Alpha1)) { ItemIdInt = 1; }
             if (Input.GetKeyDown(KeyCode.Alpha2)) { ItemIdInt = 2; }
             if (Input.GetKeyDown(KeyCode.Alpha3)) { ItemIdInt = 3; }
-            if (Input.GetKeyDown(KeyCode.Alpha4)) { ItemIdInt = 4; }
-            if (Input.GetKeyDown(KeyCode.Alpha5)) { ItemIdInt = 5; }
-            if (Input.GetKeyDown(KeyCode.Alpha6)) { ItemIdInt = 6; }
 
             if (Input.GetAxis("Mouse ScrollWheel") > 0f) { ItemIdInt++; }
             if (Input.GetAxis("Mouse ScrollWheel") < 0f) { ItemIdInt--; }
 
-            if (Input.GetKeyDown(KeyCode.Mouse0) && GameObject.Find("Flashlight"))
+            if (Input.GetKeyDown(KeyCode.Mouse0) && GameObject.Find("HeldFlashlight"))
             {
-                AudioSource sound = GameObject.Find("Flashlight").GetComponent<AudioSource>();
+                AudioSource sound = GameObject.Find("HeldFlashlight").GetComponent<AudioSource>();
                 sound.Play();
-                GameObject light = GameObject.Find("Flashlight").transform.GetChild(0).gameObject;
+                GameObject light = GameObject.Find("HeldFlashlight").transform.GetChild(0).gameObject;
                 light.SetActive(!light.activeSelf);
             }
 

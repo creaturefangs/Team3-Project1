@@ -90,7 +90,7 @@ public class Interactorscr : MonoBehaviour
                 {
                      interactSFX = GameObject.Find("lightgeneratorSFX").GetComponent<AudioSource>();
                 }
-                if (interactType != "radio" && interactType != "note" && interactType != "powerbox" && interactType != "powerswitch" && interactType != "lightgenerator") { Debug.Log("KILL");  Destroy(hit.collider.gameObject); }
+                if (interactType != "radio" && interactType != "note" && interactType != "powerbox" && interactType != "powerswitch" && interactType != "lightgenerator") { Destroy(hit.collider.gameObject); }
                 if (interactSFX != null) { interactSFX.Play(); }
                 onInteract.Invoke();
                 Debug.Log("Player interacted with: " + interactObj.name);
