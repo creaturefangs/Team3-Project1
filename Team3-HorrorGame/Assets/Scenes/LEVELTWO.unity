@@ -23,10 +23,10 @@ RenderSettings:
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
-  m_AmbientIntensity: 1.87
+  m_AmbientIntensity: 0.92
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: 51b74d7bad397457d883c5940f7664d8, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 5489b58387d36b046bd0950e5a01a1eb, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -37,8 +37,8 @@ RenderSettings:
   m_ReflectionBounces: 1
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
-  m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.094288595, g: 0.1194504, b: 0.15523562, a: 1}
+  m_Sun: {fileID: 2137493850}
+  m_IndirectSpecularColor: {r: 0.12594962, g: 0.13636252, b: 0.1492078, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1931,6 +1931,71 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 469517265}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &474318797
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 843558594826761073, guid: 4b74f89ec4b35454a840bb58cf42cf4f, type: 3}
+      propertyPath: m_Name
+      value: RainPrefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 3632647804891022631, guid: 4b74f89ec4b35454a840bb58cf42cf4f, type: 3}
+      propertyPath: Camera
+      value: 
+      objectReference: {fileID: 1904754989}
+    - target: {fileID: 3632647804891022631, guid: 4b74f89ec4b35454a840bb58cf42cf4f, type: 3}
+      propertyPath: FollowCamera
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6055994602671179561, guid: 4b74f89ec4b35454a840bb58cf42cf4f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6055994602671179561, guid: 4b74f89ec4b35454a840bb58cf42cf4f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6055994602671179561, guid: 4b74f89ec4b35454a840bb58cf42cf4f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6055994602671179561, guid: 4b74f89ec4b35454a840bb58cf42cf4f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6055994602671179561, guid: 4b74f89ec4b35454a840bb58cf42cf4f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6055994602671179561, guid: 4b74f89ec4b35454a840bb58cf42cf4f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6055994602671179561, guid: 4b74f89ec4b35454a840bb58cf42cf4f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6055994602671179561, guid: 4b74f89ec4b35454a840bb58cf42cf4f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6055994602671179561, guid: 4b74f89ec4b35454a840bb58cf42cf4f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6055994602671179561, guid: 4b74f89ec4b35454a840bb58cf42cf4f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4b74f89ec4b35454a840bb58cf42cf4f, type: 3}
 --- !u!1 &474350989
 GameObject:
   m_ObjectHideFlags: 0
@@ -6712,6 +6777,11 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!20 &1904754989 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 2797183123321676479, guid: 83cebed10f36a714daa48b6b8501434e, type: 3}
+  m_PrefabInstance: {fileID: 433879453}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1951035851
 GameObject:
   m_ObjectHideFlags: 0
@@ -7748,3 +7818,4 @@ SceneRoots:
   - {fileID: 649086486}
   - {fileID: 1104886390}
   - {fileID: 436995274}
+  - {fileID: 474318797}

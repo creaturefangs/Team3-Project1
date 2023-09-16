@@ -1433,7 +1433,7 @@ MonoBehaviour:
     value: 0
   clamp:
     overrideState: 0
-    value: 65472
+    value: 0
   diffusion:
     overrideState: 0
     value: 1
