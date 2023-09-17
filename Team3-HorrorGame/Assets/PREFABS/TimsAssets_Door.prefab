@@ -315,7 +315,6 @@ GameObject:
   - component: {fileID: 3456295005184168653}
   - component: {fileID: 3187974340566569425}
   - component: {fileID: 8241749895406773152}
-  - component: {fileID: 8278123746367897085}
   - component: {fileID: 2955216706913312664}
   m_Layer: 8
   m_Name: TimsAssets_Door
@@ -391,18 +390,6 @@ MonoBehaviour:
           m_StringArgument: Door_Open
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &8278123746367897085
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2671258258785612954}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5926a7fe8dd70a145bc8ea8ce690be37, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &2955216706913312664
 BoxCollider:
   m_ObjectHideFlags: 0
