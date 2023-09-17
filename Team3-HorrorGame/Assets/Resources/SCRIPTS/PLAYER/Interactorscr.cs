@@ -12,6 +12,7 @@ public class Interactorscr : MonoBehaviour
     public GameObject interactObj;
     private string interactType;
     private AudioSource interactSFX;
+    public bool pickupCrowbar;
 
     private NoteInteraction noteInteraction;
     private PlayerHealth health;
@@ -46,6 +47,11 @@ public class Interactorscr : MonoBehaviour
                 else if (interactType == "lantern")
                 {
                     interactSFX = GameObject.Find("LanternSFX").GetComponent<AudioSource>();
+                }
+                else if (interactType == "crowbar")
+                {
+                    interactSFX = GameObject.Find("interactSFX").GetComponent<AudioSource>();
+                    pickupCrowbar = true;
                 }
                 else if (interactType == "knife")
                 {
@@ -90,7 +96,17 @@ public class Interactorscr : MonoBehaviour
                 {
                      interactSFX = GameObject.Find("lightgeneratorSFX").GetComponent<AudioSource>();
                 }
-                if (interactType != "radio" && interactType != "note" && interactType != "powerbox" && interactType != "powerswitch" && interactType != "lightgenerator" && interactType != "door") { Destroy(hit.collider.gameObject); }
+                else if (interactType == "fence")
+                {
+                    if (pickupCrowbar == true)
+                    {
+                       
+                       Destroy(hit.collider.gameObject);
+                        
+                       interactSFX = GameObject.Find("lightgeneratorSFX").GetComponent<AudioSource>();
+                    }
+                }
+                if (interactType != "radio" && interactType != "note" && interactType != "powerbox" && interactType != "powerswitch" && interactType != "lightgenerator" && interactType != "door" && interactType != "fence") { Destroy(hit.collider.gameObject); }
                 if (interactSFX != null) { interactSFX.Play(); }
                 onInteract.Invoke();
                 Debug.Log("Player interacted with: " + interactObj.name);

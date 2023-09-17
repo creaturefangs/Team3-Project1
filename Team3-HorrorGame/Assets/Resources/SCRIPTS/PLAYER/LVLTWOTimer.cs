@@ -11,6 +11,7 @@ public class LVLTWOTimer : MonoBehaviour
     private float countdownTime = 180.0f; // 3 minutes
     private bool isTimerRunning = false;
     public PlayerHealth playerHealth;
+    public GameObject timerTXT;
 
     private void Start()
     {
@@ -38,7 +39,8 @@ public class LVLTWOTimer : MonoBehaviour
 
     public void StartTimer()
     {
-        isTimerRunning = false;
+        isTimerRunning = true;
+        timerTXT.SetActive(true);
     }
 
     public void StopTimer()
