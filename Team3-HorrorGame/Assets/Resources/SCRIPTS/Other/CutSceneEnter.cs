@@ -8,12 +8,14 @@ public class CutSceneEnter : MonoBehaviour
     public GameObject cutsceneCam;
     public GameObject fireObject;
     private LVLTWOTimer lvltwoTimer;
+    public GameObject beastEnemy;
 
     void OnTriggerEnter(Collider other)
     {
         this.gameObject.GetComponent<BoxCollider>().enabled = false;
         cutsceneCam.SetActive(true);
         thePlayer.SetActive(false);
+        beastEnemy.SetActive(false);
 
         if (gameObject.CompareTag ("CutsceneFire"))
         {
@@ -34,6 +36,8 @@ public class CutSceneEnter : MonoBehaviour
         yield return new WaitForSeconds(8);
         thePlayer.SetActive(true);
         cutsceneCam.SetActive(false);
+        beastEnemy.SetActive(true);
+
     }
 
     IEnumerator FinishCutFire()
@@ -44,5 +48,7 @@ public class CutSceneEnter : MonoBehaviour
         cutsceneCam.SetActive(false);
         fireObject.SetActive(true);
         lvltwoTimer.StartTimer();
+        beastEnemy.SetActive(true);
+
     }
 }
