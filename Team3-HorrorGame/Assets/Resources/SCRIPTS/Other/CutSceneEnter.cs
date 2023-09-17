@@ -6,7 +6,7 @@ public class CutSceneEnter : MonoBehaviour
 {
     public GameObject thePlayer;
     public GameObject cutsceneCam;
-
+    public GameObject fireObject;
 
     void OnTriggerEnter(Collider other)
     {
@@ -41,5 +41,6 @@ public class CutSceneEnter : MonoBehaviour
         yield return new WaitForSeconds(18);
         thePlayer.SetActive(true);
         cutsceneCam.SetActive(false);
+        fireObject.SetActive(true);
     }
 }

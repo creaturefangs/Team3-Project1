@@ -52,7 +52,7 @@ public class PlayerHealth : MonoBehaviour
         overlay.GetComponent<Animator>().Play("HealOverlay");
     }
 
-    void Die()
+    public void Die()
     {
         //load game over screen
         SceneManager.LoadScene("GAMEOVER");
