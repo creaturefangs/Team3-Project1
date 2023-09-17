@@ -9,6 +9,8 @@ TagManager:
   - Music
   - Enemy
   - powerswitch
+  - CutsceneFire
+  - CutsceneExit
   layers:
   - Default
   - TransparentFX

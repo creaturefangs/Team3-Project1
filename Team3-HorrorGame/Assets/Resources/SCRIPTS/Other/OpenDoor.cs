@@ -12,6 +12,7 @@ public class OpenDoor : MonoBehaviour
     string codeTextValue = "";
     public string safeCode;
     public GameObject CodePanel;
+    public GameObject cutsceneFireTrigger;
     
     void Start()
     {
@@ -48,6 +49,7 @@ public class OpenDoor : MonoBehaviour
         if(other.tag == "GameController")
         {
             isAtDoor = true;
+            cutsceneFireTrigger.SetActive(true);
         }
     }
 

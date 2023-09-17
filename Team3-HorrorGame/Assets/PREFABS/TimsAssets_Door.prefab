@@ -332,7 +332,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2671258258785612954}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.5015248, y: 0.49847052, z: 0.49847052, w: 0.5015248}
+  m_LocalRotation: {x: -0.5, y: 0.5, z: 0.5, w: 0.5}
   m_LocalPosition: {x: -3.3773, y: -5.07, z: -5.6188965}
   m_LocalScale: {x: 2.9965534, y: 2.9965534, z: 2.9965534}
   m_ConstrainProportionsScale: 0
@@ -340,7 +340,7 @@ Transform:
   - {fileID: 8147873478065631737}
   - {fileID: 1630442704398531526}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 89.65}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 90}
 --- !u!95 &3187974340566569425
 Animator:
   serializedVersion: 5
@@ -375,6 +375,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactType: door
+  noteNum: 1
   onInteract:
     m_PersistentCalls:
       m_Calls:
