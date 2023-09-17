@@ -11,6 +11,7 @@ TagManager:
   - powerswitch
   - CutsceneFire
   - CutsceneExit
+  - Objective
   layers:
   - Default
   - TransparentFX

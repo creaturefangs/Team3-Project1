@@ -17,12 +17,15 @@ public class Interactorscr : MonoBehaviour
     private PlayerHealth health;
     private RadioManager powerOn;
 
+    private Objectives objectives;
+
     // Start is called before the first frame update
     void Start()
     {
         noteInteraction = GameObject.Find("NotesUI").GetComponent<NoteInteraction>();
         health = GameObject.Find("PlayerController").GetComponent<PlayerHealth>();
         powerOn = GameObject.Find("PlayerController").GetComponent<RadioManager>();
+        objectives = GameObject.Find("TaskUI").GetComponent<Objectives>();
     }
 
     // Update is called once per frame
@@ -92,6 +95,9 @@ public class Interactorscr : MonoBehaviour
                 }
                 if (interactType != "radio" && interactType != "note" && interactType != "powerbox" && interactType != "powerswitch" && interactType != "lightgenerator") { Destroy(hit.collider.gameObject); }
                 if (interactSFX != null) { interactSFX.Play(); }
+
+                if (interactObj.tag == "Objective") { objectives.UpdateObjective(interactObj.name); }
+
                 onInteract.Invoke();
                 Debug.Log("Player interacted with: " + interactObj.name);
             }

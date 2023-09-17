@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6610627904609651347}
   m_Layer: 8
   m_Name: Beans
-  m_TagString: Pickup
+  m_TagString: Objective
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -120,6 +120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactType: Beans
+  noteNum: 1
   onInteract:
     m_PersistentCalls:
       m_Calls:

@@ -180,7 +180,7 @@ GameObject:
   - component: {fileID: 2769304398165009446}
   m_Layer: 8
   m_Name: matchbox
-  m_TagString: Pickup
+  m_TagString: Objective
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -239,6 +239,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0c08372bdcafaf4d9aa1e1ac16ed5a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactType: 
+  noteNum: 1
   onInteract:
     m_PersistentCalls:
       m_Calls:
@@ -254,7 +256,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  ID: 0
 --- !u!65 &2769304398165009446
 BoxCollider:
   m_ObjectHideFlags: 0
