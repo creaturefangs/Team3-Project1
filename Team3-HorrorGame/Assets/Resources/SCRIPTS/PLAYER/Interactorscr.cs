@@ -47,23 +47,14 @@ public class Interactorscr : MonoBehaviour
                     interactSFX = GameObject.Find("NoteSFX").GetComponent<AudioSource>();
                     noteInteraction.PickUpNote();
                 }
-                else if (interactType == "lantern")
-                {
-                    interactSFX = GameObject.Find("LanternSFX").GetComponent<AudioSource>();
-                }
+                else if (interactType == "lantern") { interactSFX = GameObject.Find("LanternSFX").GetComponent<AudioSource>(); }
                 else if (interactType == "crowbar")
                 {
                     interactSFX = GameObject.Find("interactSFX").GetComponent<AudioSource>();
                     pickupCrowbar = true;
                 }
-                else if (interactType == "knife")
-                {
-                    interactSFX = GameObject.Find("KnifeSFX").GetComponent<AudioSource>();
-                }
-                else if (interactType == "door")
-                {
-                    interactSFX = GameObject.Find("DoorSFX").GetComponent<AudioSource>();
-                }
+                else if (interactType == "knife") { interactSFX = GameObject.Find("KnifeSFX").GetComponent<AudioSource>(); }
+                else if (interactType == "door") { interactSFX = GameObject.Find("DoorSFX").GetComponent<AudioSource>(); }
                 else if (interactType == "pills")
                 {
                     interactSFX = GameObject.Find("pillsSFX").GetComponent<AudioSource>();
@@ -76,7 +67,7 @@ public class Interactorscr : MonoBehaviour
                     health.RestoreHealth(100);
 
                 }
-                else if (interactType == "key")
+                else if (interactType == "key") 
                 {
                     interactSFX = GameObject.Find("keySFX").GetComponent<AudioSource>();
                 }
@@ -113,6 +104,13 @@ public class Interactorscr : MonoBehaviour
                 if (interactSFX != null) { interactSFX.Play(); }
 
                 if (interactObj.tag == "Objective") { objectives.UpdateObjective(interactObj.name); }
+                else if (interactObj.tag == "SpecialObjective")
+                {
+                    if (interactObj.name == "Key Variant") { objectives.UpdateObjective("key to the"); }
+                    else if (interactObj.name == "Main Knob") { objectives.UpdateObjective("radio station"); }
+                    else if (interactObj.name == "Radio") { objectives.UpdateObjective("radio broadcast"); }
+                    else if (interactObj.name == "Crowbar") { objectives.UpdateObjective("break the fence"); }
+                }
 
                 onInteract.Invoke();
                 Debug.Log("Player interacted with: " + interactObj.name);

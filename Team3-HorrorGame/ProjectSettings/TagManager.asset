@@ -12,6 +12,7 @@ TagManager:
   - CutsceneFire
   - CutsceneExit
   - Objective
+  - SpecialObjective
   layers:
   - Default
   - TransparentFX

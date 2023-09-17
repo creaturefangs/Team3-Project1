@@ -2831,7 +2831,7 @@ GameObject:
   - component: {fileID: 66878932869869014}
   m_Layer: 8
   m_Name: Main Knob
-  m_TagString: powerswitch
+  m_TagString: SpecialObjective
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

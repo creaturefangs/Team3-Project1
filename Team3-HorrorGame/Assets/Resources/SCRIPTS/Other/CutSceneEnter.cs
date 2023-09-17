@@ -7,8 +7,16 @@ public class CutSceneEnter : MonoBehaviour
     public GameObject thePlayer;
     public GameObject cutsceneCam;
     public GameObject fireObject;
-    private LVLTWOTimer lvltwoTimer;
+    private LVLTWOTimer lvlTwoTimer;
     public GameObject beastEnemy;
+
+    private Objectives objectives;
+
+    private void Start()
+    {
+        lvlTwoTimer = GameObject.Find("TIMER").GetComponent<LVLTWOTimer>();
+        objectives = GameObject.Find("TaskUI").GetComponent<Objectives>();
+    }
 
     void OnTriggerEnter(Collider other)
     {
@@ -26,6 +34,7 @@ public class CutSceneEnter : MonoBehaviour
         if (gameObject.CompareTag ("CutsceneExit"))
         {
             StartCoroutine(FinishCut());
+            objectives.UpdateObjective("exit tunnel");
         }
 
     }
@@ -47,7 +56,7 @@ public class CutSceneEnter : MonoBehaviour
         thePlayer.SetActive(true);
         cutsceneCam.SetActive(false);
         fireObject.SetActive(true);
-        lvltwoTimer.StartTimer();
+        lvlTwoTimer.StartTimer();
         beastEnemy.SetActive(true);
 
     }

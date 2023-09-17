@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 297098016}
-  m_IndirectSpecularColor: {r: 0.5419796, g: 0.42409015, b: 0.38188717, a: 1}
+  m_IndirectSpecularColor: {r: 0.5419796, g: 0.4240902, b: 0.3818871, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -15585,6 +15585,10 @@ PrefabInstance:
     - target: {fileID: 3484624417436574276, guid: f99be74a5256cb74796958d4b74080a3, type: 3}
       propertyPath: m_Name
       value: Crowbar
+      objectReference: {fileID: 0}
+    - target: {fileID: 3484624417436574276, guid: f99be74a5256cb74796958d4b74080a3, type: 3}
+      propertyPath: m_TagString
+      value: SpecialObjective
       objectReference: {fileID: 0}
     - target: {fileID: 4255919096610552062, guid: f99be74a5256cb74796958d4b74080a3, type: 3}
       propertyPath: m_LocalScale.x

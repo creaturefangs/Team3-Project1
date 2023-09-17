@@ -14,6 +14,21 @@ public class Objectives : MonoBehaviour
     {
         objectiveUI = transform.GetChild(0).GetChild(0).gameObject;
         GetObjectives();
+        if (SceneManager.GetActiveScene().name == "LEVELONE")
+        {
+            AddObjective("Find the key to the exit.");
+            AddObjective("Turn on the radio station.");
+            AddObjective("Listen to the radio broadcast.");
+        }
+        else if (SceneManager.GetActiveScene().name == "LEVELTWO")
+        {
+            AddObjective("Find out how to open the exit tunnel.");
+        }
+        else if (SceneManager.GetActiveScene().name == "LEVELTHREE")
+        {
+            AddObjective("Find a key to the building.");
+            AddObjective("Get something to break the fence with.");
+        }
     }
 
     // Update is called once per frame
@@ -47,7 +62,7 @@ public class Objectives : MonoBehaviour
         {
             GameObject obj = item.gameObject;
             string text = obj.GetComponent<TMP_Text>().text;
-            Regex re = new Regex(@$"{name.ToUpper()}");
+            Regex re = new Regex(@$"{name}", RegexOptions.IgnoreCase);
             Regex completed = new Regex(@"<s>.+</s>"); // Checks that the objective is not already completed.
             if (re.IsMatch(text) && !completed.IsMatch(text))
             {
@@ -68,12 +83,14 @@ public class Objectives : MonoBehaviour
             Regex completed = new Regex(@"<s>.+</s>"); // Checks if the objective is completed.
             if (!completed.IsMatch(text) && obj.name != "TaskListTitle") { complete = false; break; }
         }
-        if (complete)
-        {
-            GameObject lastObj = objectiveUI.transform.GetChild(objectiveUI.transform.childCount - 1).gameObject;
-            float yPos = lastObj.transform.position.y - lastObj.GetComponent<RectTransform>().sizeDelta.y;
-            GameObject currentObj = Instantiate(lastObj, new Vector3(lastObj.transform.position.x, yPos, lastObj.transform.position.z), lastObj.transform.rotation, objectiveUI.transform);
-            currentObj.GetComponent<TMP_Text>().text = $"- Find the exit.";
-        }
+        if (complete) { AddObjective("Find the exit."); }
+    }
+
+    void AddObjective(string text)
+    {
+        GameObject lastObj = objectiveUI.transform.GetChild(objectiveUI.transform.childCount - 1).gameObject;
+        float yPos = lastObj.transform.position.y - lastObj.GetComponent<RectTransform>().sizeDelta.y;
+        GameObject currentObj = Instantiate(lastObj, new Vector3(lastObj.transform.position.x, yPos, lastObj.transform.position.z), lastObj.transform.rotation, objectiveUI.transform);
+        currentObj.GetComponent<TMP_Text>().text = $"- {text}";
     }
 }
