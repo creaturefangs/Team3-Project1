@@ -1694,6 +1694,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Knife
       objectReference: {fileID: 0}
+    - target: {fileID: 1929180651200176940, guid: cdf4eefa65b94c54c87f3f65b5b93b38, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5964254660971460371, guid: cdf4eefa65b94c54c87f3f65b5b93b38, type: 3}
       propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
