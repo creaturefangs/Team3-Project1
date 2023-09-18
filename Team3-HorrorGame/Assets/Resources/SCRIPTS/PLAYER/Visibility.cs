@@ -60,7 +60,7 @@ public class Visibility : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //godMode = devTools.godMode;
+        godMode = devTools.godMode;
         if (!godMode && !enemy.GetComponent<BasicEnemyAI>().chase)
         {
             visIcon.color = Color.white;
