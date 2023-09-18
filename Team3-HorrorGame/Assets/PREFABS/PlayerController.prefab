@@ -1486,9 +1486,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Camera: {fileID: 8988272068252465288}
   Items: {fileID: 982526535398909157}
-  walkingSpeed: 9
+  walkingSpeed: 10
   CroughSpeed: 1
-  RunningSpeed: 13
+  RunningSpeed: 15
   jumpHeight: 15
   lookSpeed: 2
   lookXLimit: 80
