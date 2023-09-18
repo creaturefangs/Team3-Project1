@@ -44,6 +44,7 @@ public class BasicEnemyAI : MonoBehaviour
     private Transform currentWaypoint;
     private int waypointIndex = 0;
     private Animator animator;
+   
 
     private void Start()
     {
@@ -56,6 +57,7 @@ public class BasicEnemyAI : MonoBehaviour
 
         //currentWaypoint = waypoints[waypointIndex];
         animator = GetComponent<Animator>();
+        
 
         blinkOverlay = GameObject.Find("BlinkOverlay");
         idlePos = gameObject.transform.position;
@@ -131,6 +133,7 @@ public class BasicEnemyAI : MonoBehaviour
     {
         chase = true;
         if (chaseMusic.isPlaying) { StartCoroutine(FadeMusic(chaseMusic, 0.1f)); }
+        animator.SetBool("IsChasing", true);
         chaseMusic.Play();
 
         if (Vector3.Distance(transform.position, player.transform.position) > 5) { SpawnEnemy(detectionRange / 2); }
@@ -145,6 +148,8 @@ public class BasicEnemyAI : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, player.transform.position, chaseSpeed * Time.deltaTime); // Enemy moves towards player from current position at given chase speed.
             yield return new WaitForSeconds(Time.deltaTime);
         }
+
+        animator.SetBool("IsChasing", false);
 
         // When player gets out of range...
         Debug.Log("Chase ended.");

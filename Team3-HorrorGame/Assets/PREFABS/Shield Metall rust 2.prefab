@@ -691,7 +691,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactType: powerbox
-  noteNum: 1
+  noteNum: 0
   onInteract:
     m_PersistentCalls:
       m_Calls:
@@ -2936,7 +2936,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactType: powerswitch
-  noteNum: 1
+  noteNum: 0
   onInteract:
     m_PersistentCalls:
       m_Calls:
