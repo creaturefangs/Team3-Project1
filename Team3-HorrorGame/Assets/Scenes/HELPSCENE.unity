@@ -1833,9 +1833,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "You can view your inventory and use items to heal, attack, and defend
-    yourself. \n\nFind clues throughout the environment that gives context to the
-    world around you. "
+  m_text: "You can scroll through your inventory and use items to see the world around
+    you, heal yourself, or interact with the environment. \n\nFind clues throughout
+    the environment that gives context to the world around you. "
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dbc1c8eb47f9f7541b088b755beb7192, type: 2}
   m_sharedMaterial: {fileID: -419452940484561822, guid: dbc1c8eb47f9f7541b088b755beb7192, type: 2}
@@ -4474,7 +4474,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1212199807
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4672,9 +4672,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Your main objective is to escape the forest and survive until daytime.
 
-
     Finding
-    supplies will help you through the areas.'
+    supplies is your secondary objective as a survivor.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dbc1c8eb47f9f7541b088b755beb7192, type: 2}
   m_sharedMaterial: {fileID: -419452940484561822, guid: dbc1c8eb47f9f7541b088b755beb7192, type: 2}
