@@ -26,7 +26,7 @@ public class RadioManager : MonoBehaviour
     {
         if (powerOn == false)
         {
-            // if the radio tower is without power, the static plays.
+            
         }
 
         if(powerOn == true)
