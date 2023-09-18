@@ -97,7 +97,7 @@ public class Interactorscr : MonoBehaviour
                        
                        Destroy(hit.collider.gameObject);
                         
-                       interactSFX = GameObject.Find("interactSFX").GetComponent<AudioSource>();
+                       interactSFX = GameObject.Find("lightgeneratorSFX").GetComponent<AudioSource>();
                     }
                 }
                 if (interactType != "radio" && interactType != "note" && interactType != "powerbox" && interactType != "powerswitch" && interactType != "lightgenerator" && interactType != "door" && interactType != "fence") { Destroy(hit.collider.gameObject); }
