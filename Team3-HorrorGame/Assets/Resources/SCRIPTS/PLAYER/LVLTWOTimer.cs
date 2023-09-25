@@ -8,7 +8,7 @@ public class LVLTWOTimer : MonoBehaviour
 
     public TMP_Text timerText;
     private float startTime;
-    private float countdownTime = 180.0f; // 3 minutes
+    private float countdownTime = 300.0f; // 5 minutes
     private bool isTimerRunning = false;
     public PlayerHealth playerHealth;
     public GameObject timerTXT;
@@ -46,7 +46,7 @@ public class LVLTWOTimer : MonoBehaviour
     public void StopTimer()
     {
         isTimerRunning = false;
-        //playerHealth.Die();
+        playerHealth.Die();
         Debug.Log("Player will die.");
     }
 }
