@@ -130,7 +130,7 @@ public class BasicEnemyAI : MonoBehaviour
     private IEnumerator Chase()
     {
         chase = true;
-        Animator.SetBool("IsChasing", true);
+        animator.SetBool("IsChasing", true);
         if (chaseMusic.isPlaying) { StartCoroutine(FadeMusic(chaseMusic, 0.1f)); }
         chaseMusic.Play();
 
@@ -154,7 +154,7 @@ public class BasicEnemyAI : MonoBehaviour
         visScript.UpdateOverlay();
 
         chase = false;
-        Animator.SetBool("IsChasing", false);
+        animator.SetBool("IsChasing", false);
         StartCoroutine(FadeMusic(chaseMusic, 0.5f));
     }
 
